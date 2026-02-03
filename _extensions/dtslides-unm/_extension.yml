@@ -1,10 +1,12 @@
-title: unm
+title: dtslides-unm
 author: Davood Tofighi
-version: 1.0.2
+version: 1.1.0
 quarto-required: ">=1.6.0"
+
 contributes:
   formats:
     revealjs:
+      theme: [simple, "styles/custom.scss"]
       logo: "images/ms-logo.png"
       title-slide-attributes:
         data-background-image: "images/unm-title-slide.png"
@@ -13,11 +15,11 @@ contributes:
         data-background-opacity: "0.9"
         data-background-repeat: "no-repeat"
       slide-number: true
-      scrollable: true
       code-copy: false
       margin: 0.08
-      theme: [ simple, "styles/custom.scss" ]
+
     date-format: long
+
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"

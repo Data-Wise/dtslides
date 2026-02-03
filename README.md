@@ -1,15 +1,14 @@
-# Unm-revealjs Extension For Quarto
+# dtslides — Quarto Reveal.js Themes
 
-This extension provides a custom `revealjs` theme specifically tailored for creating University of New Mexico (UNM) branded presentations. It incorporates UNM colors, logos, and typographic styles to create professional, university-aligned slide decks.
+A Quarto extension providing two reveal.js presentation themes:
 
-Description: This extension is a custom `revealjs` theme for the University of New Mexico. The extension uses colors and logos from the University of New Mexico.
+- **Academic** (`dtslides-revealjs`) — Clean, neutral navy/slate palette for any institution
+- **UNM** (`dtslides-unm-revealjs`) — University of New Mexico branded with UNM colors and logos
 
 ## Installing
 
-Install the extension by running the following command:
-
 ```bash
-quarto add Data-Wise/unm-revealjs
+quarto add Data-Wise/dtslides
 ```
 
 This will install the extension under the `_extensions` subdirectory.
@@ -17,28 +16,34 @@ If you're using version control, you will want to check in this directory.
 
 ## Using
 
-To use the UNM RevealJS theme in your Quarto presentation, specify the format and theme in your document YAML header:
+### Academic Theme (generic)
 
 ```yaml
-format: 
-  unm-revealjs:
+format:
+  dtslides-revealjs:
     slide-number: c/t
-    # logo: "images/ms.png"
+```
+
+### UNM Theme (university branded)
+
+```yaml
+format:
+  dtslides-unm-revealjs:
+    slide-number: c/t
     chalkboard:
       theme: chalkboard
 ```
 
-If additional options are available (e.g., logo placement, color variants), please refer to the examples provided.
+## Examples
 
-## Example
-
-You can find minimal usage examples here:
-- [Minimal Example](example.qmd)
-- [Extended Example](example-long.qmd)
+- [Academic Theme Example](example-academic.qmd)
+- [UNM Theme Example](example.qmd)
+- [UNM Extended Example](example-long.qmd)
+- [Template](template.qmd)
 
 ## Reference
 
-This Quarto extension is inspired by [quarto-revealjs-clean](https://github.com/grantmcdermott/quarto-revealjs-clean) by Grant McDermott, adapted for the University of New Mexico branding guidelines.
+This Quarto extension is inspired by [quarto-revealjs-clean](https://github.com/grantmcdermott/quarto-revealjs-clean) by Grant McDermott, adapted for academic and University of New Mexico use.
 
 ## License
 
@@ -47,7 +52,3 @@ This project is licensed under the terms of the [MIT License](LICENSE).
 ## Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to open an issue or submit a pull request.
-
-## Acknowledgements
-
-Special thanks to the Quarto community and the developers of `quarto-revealjs-clean` for providing excellent resources and inspiration.
