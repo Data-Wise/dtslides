@@ -1,10 +1,9 @@
 ---
 title: "UNM reveal.js Template"
 subtitle: "A Presentation Template"
-format: 
-  unm-revealjs:
+format:
+  dtslides-unm-revealjs:
     slide-number: c/t
-    # logo: "images/ms.png"
     chalkboard:
       theme: chalkboard
     

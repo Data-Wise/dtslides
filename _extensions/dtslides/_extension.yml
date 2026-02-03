@@ -1,0 +1,18 @@
+title: dtslides
+author: Davood Tofighi
+version: 1.1.0
+quarto-required: ">=1.6.0"
+
+contributes:
+  formats:
+    revealjs:
+      theme: [simple, "styles/academic.scss"]
+      slide-number: true
+      code-copy: false
+      margin: 0.08
+
+    date-format: long
+
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"

@@ -1,0 +1,104 @@
+---
+title: "Introduction to Statistical Methods"
+subtitle: "Academic Theme Demo"
+format:
+  dtslides-revealjs:
+    slide-number: c/t
+author:
+  - name: Your Name
+    orcid: 0000-0000-0000-0000
+    email: alias@email.com
+    affiliations: Department of Statistics
+date: last-modified
+---
+
+## Overview
+
+This presentation demonstrates the **academic** theme — a clean, neutral design suitable for any institution.
+
+- Navy/slate color palette
+- No institutional branding
+- Same feature set as the UNM theme
+
+# Data Analysis
+
+## R Code Example
+
+```{r}
+#| echo: true
+
+set.seed(42)
+x <- rnorm(100)
+y <- 2 * x + rnorm(100, sd = 0.5)
+summary(lm(y ~ x))
+```
+
+## Code with Column Output {.small-slide}
+
+```{r}
+#| echo: true
+#| output-location: column
+
+df <- data.frame(
+  Treatment = rep(c("A", "B", "C"), each = 4),
+  Response = c(23, 25, 21, 24, 30, 32, 28, 31, 18, 20, 17, 19)
+)
+df |> knitr::kable()
+```
+
+## Table Example
+
+| Source    | DF  | SS   | MS   | F    |
+|-----------|-----|------|------|------|
+| Treatment | 2   | 312  | 156  | 52.0 |
+| Error     | 9   | 27   | 3.0  |      |
+| Total     | 11  | 339  |      |      |
+
+# Special Features
+
+## Emphasis Classes
+
+- [important note]{.alert} — alert emphasis
+- [highlighted]{.fg} — foreground color
+- [background]{.bg} — background accent
+- [key finding]{.highlight} — highlight
+- [side note]{.note} — note style
+- [caution]{.warning} — warning
+
+## Callout Examples
+
+::: {.callout-example}
+This is a worked example using the academic theme.
+:::
+
+::: {.callout-question}
+How does this compare to the UNM-branded version?
+:::
+
+::: {.callout-insight}
+The academic theme uses a navy/slate palette for a neutral academic look.
+:::
+
+## Scrollable Slide Demo {.scrollable}
+
+Add `{.scrollable}` to any slide with content that intentionally exceeds the viewport. The audience can scroll through the full content.
+
+### Full Regression Output
+
+```{r}
+#| echo: true
+
+set.seed(42)
+n <- 200
+x1 <- rnorm(n)
+x2 <- rnorm(n)
+x3 <- rnorm(n)
+y <- 3 + 2*x1 - 1.5*x2 + 0.8*x3 + rnorm(n)
+fit <- lm(y ~ x1 + x2 + x3)
+summary(fit)
+confint(fit)
+```
+
+# Thank You
+
+Questions?

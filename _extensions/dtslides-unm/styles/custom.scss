@@ -1,0 +1,106 @@
+// ============================================================
+// dtslides — UNM Theme (custom.scss)
+// University of New Mexico branded reveal.js theme
+// Usage: format: dtslides-unm-revealjs
+// ============================================================
+
+/*-- scss:defaults --*/
+
+// --- UNM Brand Colors ---
+$unm-cherry: #ba0c2f;
+$unm-turquoise: #007a86;
+$unm-silver: #a7a8aa;
+$unm-lobo-gray: #63666a;
+$unm-high-noon: #ffc600;
+$unm-sandia-sunset: #ed8b00;
+$unm-terra: #c05131;
+$unm-mesa: #d6a461;
+$unm-green-chile: #a8aa19;
+$unm-deep-dusk: #8a387c;
+
+// --- Theme Color Assignments ---
+$accent: $unm-turquoise;
+$body-bg: #ffffff;
+$body-color: #222222;
+$link-color: $unm-turquoise;
+$link-color-hover: lighten($link-color, 15%);
+$selection-bg: lighten($unm-silver, 17%);
+$selection-color: lighten($unm-terra, 2%);
+$code-color: #4758ab;
+
+// --- Heading Colors ---
+$heading-h1-color: $unm-green-chile;
+$heading-h2-color: $unm-cherry;
+$heading-h3-color: $unm-lobo-gray;
+$heading-h4-color: $unm-green-chile;
+$heading-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+// --- Table Colors ---
+$table-header-bg: $unm-silver;
+$table-stripe-bg: lighten($unm-sandia-sunset, 50%);
+$table-border-color: $unm-lobo-gray;
+
+// --- Emphasis Colors ---
+$emphasis-alert: $unm-cherry;
+$emphasis-fg: $unm-turquoise;
+$emphasis-bg: $unm-sandia-sunset;
+$emphasis-highlight: $unm-high-noon;
+$emphasis-note: $unm-mesa;
+$emphasis-warning: $unm-terra;
+
+// --- Callout Colors ---
+$callout-example-color: $unm-green-chile;
+$callout-question-color: $unm-sandia-sunset;
+$callout-insight-color: $unm-turquoise;
+$callout-note-title-bg: lighten($unm-green-chile, 30%);
+
+// --- Badge ---
+$badge-color: $unm-green-chile;
+
+// --- Font Families ---
+$font-family-sans-serif: "Roboto", sans-serif !default;
+$font-family-monospace: "Fira Code", monospace !default;
+$font-family-heading: "Lato", sans-serif;
+
+// --- Font Sizes ---
+$font-size-root: 26px;
+$font-size: 1em !default;
+$font-size-medium-small: 0.8em !default;
+$font-size-small: 0.6em !default;
+$font-size-tiny: 0.4em !default;
+
+// --- Spacing ---
+$spacing-xxs: 0.25rem;
+$spacing-xs: 0.5rem;
+$spacing-sm: 0.75rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-xxl: 3rem;
+
+// --- Line Heights ---
+$line-height-body: 1.3;
+$line-height-heading: 1.2;
+
+// --- Presentation Variables (Quarto) ---
+$presentation-font-size-root: $font-size-root;
+$presentation-h1-font-size: 2.2em !default;
+$presentation-h2-font-size: 1.6em !default;
+$presentation-h3-font-size: 1.1em !default;
+$presentation-heading-font: $font-family-heading !default;
+$presentation-heading-color: $unm-cherry;
+$presentation-heading-line-height: $line-height-heading;
+$presentation-font-smaller: $font-size-medium-small !default;
+
+// --- Code Block Settings ---
+$code-line-height: 1.4 !default;
+$code-font-family: $font-family-monospace !default;
+$code-block-font-size: 0.55em !default;
+$code-block-bg: #eef2f5 !default;
+$code-output-bg: #f8f9fa !default;
+
+/*-- scss:rules --*/
+
+@import '_shared';
+
+/*-- scss:mixins --*/
