@@ -1,8 +1,11 @@
 ---
 title: "Advancements in Renewable Energy"
 subtitle: "A Presentation Template"
-format: 
-  unm-revealjs:
+# Choose your theme:
+#   format: dtslides-revealjs          # Generic academic (navy/slate)
+#   format: dtslides-unm-revealjs     # UNM branded (cherry/turquoise)
+format:
+  dtslides-unm-revealjs:
     slide-number: true
     transition: fade
 author:
@@ -13,7 +16,7 @@ author:
 date: last-modified
 ---
 
-# Introduction (Section with Text) 
+# Introduction (Section with Text)
 
 Welcome to the presentation on advancements in renewable energy.
 

@@ -1,0 +1,102 @@
+// ============================================================
+// dtslides — Academic Theme (academic.scss)
+// Clean, neutral academic presentation theme
+// Usage: format: dtslides-revealjs
+// ============================================================
+
+/*-- scss:defaults --*/
+
+// --- Academic Color Palette (Navy/Slate) ---
+$primary: #1B365D;
+$accent: #4A6FA5;
+$secondary: #6C757D;
+$highlight-color: #E8C547;
+$success: #2E7D32;
+$warning-color: #E65100;
+$info: #0277BD;
+
+// --- Theme Color Assignments ---
+$body-bg: #ffffff;
+$body-color: #222222;
+$link-color: $accent;
+$link-color-hover: lighten($accent, 15%);
+$selection-bg: lighten($secondary, 30%);
+$selection-color: $primary;
+$code-color: #4758ab;
+
+// --- Heading Colors ---
+$heading-h1-color: $primary;
+$heading-h2-color: $primary;
+$heading-h3-color: $secondary;
+$heading-h4-color: $accent;
+$heading-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+// --- Table Colors ---
+$table-header-bg: #D6DCE5;
+$table-stripe-bg: #F5F7FA;
+$table-border-color: $secondary;
+
+// --- Emphasis Colors ---
+$emphasis-alert: $primary;
+$emphasis-fg: $accent;
+$emphasis-bg: $accent;
+$emphasis-highlight: $highlight-color;
+$emphasis-note: darken($highlight-color, 10%);
+$emphasis-warning: $warning-color;
+
+// --- Callout Colors ---
+$callout-example-color: $success;
+$callout-question-color: $warning-color;
+$callout-insight-color: $info;
+$callout-note-title-bg: lighten($accent, 35%);
+
+// --- Badge ---
+$badge-color: $accent;
+
+// --- Font Families ---
+$font-family-sans-serif: "Roboto", sans-serif !default;
+$font-family-monospace: "Fira Code", monospace !default;
+$font-family-heading: "Lato", sans-serif;
+
+// --- Font Sizes ---
+$font-size-root: 26px;
+$font-size: 1em !default;
+$font-size-medium-small: 0.8em !default;
+$font-size-small: 0.6em !default;
+$font-size-tiny: 0.4em !default;
+
+// --- Spacing ---
+$spacing-xxs: 0.25rem;
+$spacing-xs: 0.5rem;
+$spacing-sm: 0.75rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-xxl: 3rem;
+
+// --- Line Heights ---
+$line-height-body: 1.3;
+$line-height-heading: 1.2;
+
+// --- Presentation Variables (Quarto) ---
+$presentation-font-size-root: $font-size-root;
+$presentation-h1-font-size: 2.2em !default;
+$presentation-h2-font-size: 1.6em !default;
+$presentation-h3-font-size: 1.1em !default;
+$presentation-heading-font: $font-family-heading !default;
+$presentation-heading-color: $primary;
+$presentation-heading-line-height: $line-height-heading;
+$presentation-font-smaller: $font-size-medium-small !default;
+
+// --- Code Block Settings ---
+$code-line-height: 1.4 !default;
+$code-font-family: $font-family-monospace !default;
+$code-block-font-size: 0.55em !default;
+$code-block-bg: #f0f3f7 !default;
+$code-output-bg: #f8f9fa !default;
+
+/*-- scss:rules --*/
+
+@import '_shared';
+
+/*-- scss:mixins --*/
