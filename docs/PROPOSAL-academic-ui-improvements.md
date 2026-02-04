@@ -125,67 +125,67 @@ Applied matching improvements to UNM theme's `custom.scss`:
 
 ---
 
-## Bigger Changes (Future Session)
+## Bigger Changes — ✅ ALL COMPLETED
 
-### 9. Code Source + Output Visual Connection
+### 9. ✅ Code Source + Output Visual Connection
 
 Remove the gap between source code and its output to make them appear as one unit:
 
 ```scss
 // _shared.scss
 .reveal div.sourceCode + div.cell-output {
-  margin-top: 0;  // was $spacing-xs
+  margin-top: 0;
 }
-
-.reveal div.cell-output-stdout pre,
-.reveal div.cell-output pre {
-  border-radius: 0 0 6px 6px;  // round only bottom corners
-  border-left: 3px solid $accent;
-  border-top: 1px solid rgba($accent, 0.2);  // subtle separator
+.reveal div.cell-output {
+  margin-bottom: $spacing-xs;
 }
-
 .reveal div.sourceCode {
-  margin-bottom: 0;  // remove bottom margin when followed by output
-
+  margin-bottom: 0;
   & + div.cell-output pre {
     margin-top: 0;
+    border-radius: 0 0 6px 6px;
+    border-top: 1px solid rgba($accent, 0.2);
   }
 }
 ```
 
-### 10. Slide Margin
+### 10. ✅ Slide Margin
 
-In `_extension.yml`:
+In `_extension.yml` (academic theme):
 ```yaml
-margin: 0.10  # was 0.08
+margin: 0.10  # was 0.08, now matches UNM theme
 ```
 
-More edge breathing room. Prevents content from feeling crowded at slide edges.
+### 11. ✅ Section Slide Enhancement
 
-### 11. Section Slide Enhancement
-
-Add a subtle bottom border or accent line to section divider slides:
+Accent underline on `.section-slide` h1 headings. Required `.reveal .slides` prefix to beat RevealJS's CSS reset (`border: 0` on all elements):
 
 ```scss
-.section-slide h1 {
+.reveal .slides .section-slide h1 {
   border-bottom: 3px solid $accent;
   padding-bottom: $spacing-md;
   display: inline-block;
 }
 ```
 
-### 12. Link Underlines
+### 12. ✅ Link Underlines
 
-Add subtle underlines to links for accessibility:
+Subtle underlines for accessibility. Required `.slides` nesting to beat RevealJS's `.reveal a { text-decoration: none }`:
 
 ```scss
-.reveal a {
+.reveal .slides a {
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
   text-decoration-color: rgba($accent, 0.4);
 }
 ```
+
+### D. ✅ CSS Specificity Fix for Items #11 & #12
+
+RevealJS's `simple` theme applies a global CSS reset (`border: 0` on all elements) and `text-decoration: none` on `.reveal a`, both of which override our rules when using equal specificity. Fixed by increasing selector depth:
+- `.section-slide h1` → `.reveal .slides .section-slide h1`
+- `.reveal a` → `.reveal .slides a`
 
 ---
 
@@ -197,7 +197,7 @@ Add subtle underlines to links for accessibility:
 | Clean (McDermott) | 32px | 1.6 | lighter | inherited |
 | Slidecraft (Hvitfeldt) | 40px | 1.6 | varies | 0.7–0.8em |
 | ~~dtslides original~~ | ~~26px~~ | ~~1.3~~ | ~~bolder~~ | ~~0.55em~~ |
-| **dtslides current** | **34px** | **1.5** | **500–600** | **0.65em** |
+| **dtslides current** | **32px** | **1.5** | **500–600** | **0.65em** |
 
 ## Sources
 

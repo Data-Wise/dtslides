@@ -44,7 +44,7 @@ body {
     overflow-y: hidden !important;
   }
 
-  a {
+  .slides a {
     color: $accent;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -343,7 +343,7 @@ body {
   }
 }
 
-.section-slide {
+.reveal .slides .section-slide {
   h1 {
     font-size: $presentation-h1-font-size;
     color: $heading-h2-color;
