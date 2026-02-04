@@ -622,6 +622,22 @@ body {
   z-index: 1000;
 }
 
+// Footer text — persistent line at the bottom of every slide.
+// Activated by RevealJS `footer` option in YAML front matter:
+//   format:
+//     dtslides-unm-revealjs:
+//       footer: "STAT 440 — Regression Analysis"
+.reveal .footer {
+  font-size: 0.5em;
+  color: $heading-h3-color;
+  opacity: 0.6;
+  text-align: left;
+  padding: 0 1em;
+}
+
+// Footer is hidden on the title slide via dtslides.js (RevealJS event),
+// because .footer is a sibling of .slides, not a descendant of #title-slide.
+
 // ============================================================
 // 18. Standard Quarto Callouts (Enhanced)
 // Use `div.callout` to match Quarto's built-in selector
