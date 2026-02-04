@@ -30,7 +30,7 @@ It covers:
 -   Custom Theme Classes
 -   Interactive Elements
 
-# Typography & Basics
+# Typography & Basics {.section-slide}
 
 ## Text Formatting
 
@@ -83,7 +83,7 @@ This slide uses the `.tiny-slide` class (40% size).
 9.  Item 9
 10. Item 10
 
-# Layouts
+# Layouts {.section-slide}
 
 ## Multiple Columns
 
@@ -147,7 +147,7 @@ plt.show()
 Tabsets allow you to organize content without cluttering the slide. Great for switching between languages or results.
 :::
 
-# Code & Output
+# Code & Output {.section-slide}
 
 ## R Code Execution
 
@@ -183,7 +183,7 @@ plot(x, y, pch = 19, col = "steelblue")
 abline(model, lwd = 2, col = "darkred")
 ```
 
-# Math & Equations
+# Math & Equations {.section-slide}
 
 ## LaTeX Support
 
@@ -206,7 +206,7 @@ f'(x) &= 2 a x + b
 \end{align}
 $$
 
-# Theme Features
+# Theme Features {.section-slide}
 
 ## Custom Classes
 
@@ -251,7 +251,7 @@ A prompt for audience reflection or discussion.
 A deeper observation or key takeaway.
 :::
 
-# Diagrams
+# Diagrams {.section-slide}
 
 ## Mermaid Diagrams
 
@@ -272,7 +272,7 @@ digraph G {
 }
 ```
 
-# Conclusion
+# Conclusion {.section-slide}
 
 ## Summary
 
