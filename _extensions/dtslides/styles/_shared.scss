@@ -46,7 +46,10 @@ body {
 
   a {
     color: $accent;
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba($accent, 0.4);
   }
 
   img {
@@ -146,9 +149,10 @@ body {
   border-radius: 0 6px 6px 0;
 }
 
-// Spacing between code and output cells
+// Code source + output visual connection
+// Remove gap so source and output appear as one unit.
 .reveal div.sourceCode + div.cell-output {
-  margin-top: $spacing-xs;
+  margin-top: 0;
 }
 
 .reveal div.cell-output {
@@ -156,7 +160,13 @@ body {
 }
 
 .reveal div.sourceCode {
-  margin-bottom: $spacing-xs;
+  margin-bottom: 0;
+
+  & + div.cell-output pre {
+    margin-top: 0;
+    border-radius: 0 0 6px 6px;
+    border-top: 1px solid rgba($accent, 0.2);
+  }
 }
 
 // Kable table output spacing
@@ -338,6 +348,9 @@ body {
     font-size: $presentation-h1-font-size;
     color: $heading-h2-color;
     text-align: center;
+    border-bottom: 3px solid $accent;
+    padding-bottom: $spacing-md;
+    display: inline-block;
   }
 }
 

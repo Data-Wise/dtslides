@@ -9,7 +9,7 @@ contributes:
       theme: [simple, "styles/academic.scss"]
       slide-number: true
       code-copy: false
-      margin: 0.08
+      margin: 0.10
 
     date-format: long
 
