@@ -5,3 +5,4 @@ next: Print/PDF optimization (#2) — add @media print rules for clean PDF expor
 target: v1.3.0 — quick wins (print, speaker notes)
 branch: dev
 released: 2026-02-04
+completed: 2026-02-04 — v1.2.0 release (UI overhaul, footer, MathJax 3, symlink, dead code cleanup, 3 PRs merged)
