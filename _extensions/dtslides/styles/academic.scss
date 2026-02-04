@@ -29,7 +29,7 @@ $heading-h1-color: $primary;
 $heading-h2-color: $primary;
 $heading-h3-color: $secondary;
 $heading-h4-color: $accent;
-$heading-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$heading-font-family: "Lato", sans-serif;
 
 // --- Table Colors ---
 $table-header-bg: #D6DCE5;
@@ -59,10 +59,10 @@ $font-family-monospace: "Fira Code", monospace !default;
 $font-family-heading: "Lato", sans-serif;
 
 // --- Font Sizes ---
-$font-size-root: 26px;
+$font-size-root: 32px;
 $font-size: 1em !default;
 $font-size-medium-small: 0.8em !default;
-$font-size-small: 0.6em !default;
+$font-size-small: 0.75em !default;
 $font-size-tiny: 0.4em !default;
 
 // --- Spacing ---
@@ -75,7 +75,7 @@ $spacing-xl: 2rem;
 $spacing-xxl: 3rem;
 
 // --- Line Heights ---
-$line-height-body: 1.3;
+$line-height-body: 1.5;
 $line-height-heading: 1.2;
 
 // --- Presentation Variables (Quarto) ---
@@ -91,7 +91,7 @@ $presentation-font-smaller: $font-size-medium-small !default;
 // --- Code Block Settings ---
 $code-line-height: 1.4 !default;
 $code-font-family: $font-family-monospace !default;
-$code-block-font-size: 0.55em !default;
+$code-block-font-size: 0.65em !default;
 $code-block-bg: #f0f3f7 !default;
 $code-output-bg: #f8f9fa !default;
 

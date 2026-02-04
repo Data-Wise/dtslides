@@ -1,15 +1,18 @@
 ---
 title: "Introduction to Statistical Methods"
-subtitle: "Academic Theme Demo"
+subtitle: "Academic Theme — Full Feature Showcase"
 format:
   dtslides-revealjs:
     slide-number: c/t
+    chalkboard: true
 author:
   - name: Your Name
     orcid: 0000-0000-0000-0000
     email: alias@email.com
     affiliations: Department of Statistics
 date: last-modified
+execute:
+  echo: true
 ---
 
 ## Overview
@@ -20,7 +23,196 @@ This presentation demonstrates the **academic** theme — a clean, neutral desig
 - No institutional branding
 - Same feature set as the UNM theme
 
-# Data Analysis
+# Typography & Basics {.section-slide}
+
+## Text Formatting
+
+Standard Markdown formatting works seamlessly:
+
+- **Bold text** for emphasis
+- *Italic text* for nuance
+- ~~Strikethrough~~ for deletions
+- `Inline code` for technical terms like `lm()` or `ggplot2`
+- [Links to resources](https://quarto.org)
+
+> "All models are wrong, but some are useful." — George Box
+
+## Lists & Fragments
+
+Use `::: {.fragment}` to reveal items one at a time:
+
+::: {.fragment}
+1. State the null hypothesis $H_0$
+:::
+::: {.fragment}
+2. Choose a significance level $\alpha$
+:::
+::: {.fragment}
+3. Compute the test statistic
+:::
+::: {.fragment}
+4. Compare to critical value or compute $p$-value
+:::
+
+## Incremental Lists
+
+Add `{.incremental}` to auto-fragment every bullet:
+
+::: {.incremental}
+- Assumption checking
+- Model fitting
+- Diagnostics
+- Interpretation
+:::
+
+## Font Sizing Utilities {.small-slide}
+
+Apply size classes to spans or divs:
+
+::::: {.columns}
+:::: {.column width="50%"}
+- [`.largest`]{.largest} (1.20em)
+- [`.larger`]{.larger} (1.50em)
+- [`.large`]{.large} (1.25em)
+- Normal text (1em)
+- [`.small`]{.small} (0.80em)
+- [`.smaller`]{.smaller} (0.64em)
+- [`.smallest`]{.smallest} (0.512em)
+::::
+:::: {.column width="50%"}
+Code blocks scale too:
+
+::: {.small}
+```r
+# .small code block
+summary(lm(y ~ x))
+```
+:::
+::::
+:::::
+
+# Slide Types {.section-slide}
+
+## Small Slide {.small-slide}
+
+Use `{.small-slide}` for slides with more content (80% font size).
+
+- Useful when you need to fit slightly more text
+- Keeps readability while increasing density
+- Great for summary or review slides
+
+## Tiny Slide {.tiny-slide}
+
+Use `{.tiny-slide}` for very dense information (40% font size).
+
+1. Reference lists
+2. Detailed code output
+3. Appendix material
+4. Supplementary tables
+5. Method details
+6. Full regression output
+7. Assumption checks
+8. Sensitivity analyses
+9. Additional citations
+10. Technical notes
+
+## Quote Slide {.quote-slide}
+
+> "The best thing about being a statistician is that you get to play in everyone's backyard."
+
+— John Tukey
+
+## Scrollable Slide {.scrollable}
+
+Add `{.scrollable}` to the slide title for long content.
+
+```{r}
+set.seed(42)
+n <- 200
+x1 <- rnorm(n)
+x2 <- rnorm(n)
+x3 <- rnorm(n)
+y <- 3 + 2*x1 - 1.5*x2 + 0.8*x3 + rnorm(n)
+fit <- lm(y ~ x1 + x2 + x3)
+summary(fit)
+confint(fit)
+```
+
+# Layouts {.section-slide}
+
+## Two Columns
+
+::::: {.columns}
+:::: {.column width="50%"}
+### Left Column
+
+- Regression assumptions
+- Linearity
+- Normality of residuals
+- Homoscedasticity
+::::
+
+:::: {.column width="50%"}
+### Right Column
+
+- Diagnostic tools
+- Residual plots
+- Q-Q plots
+- Cook's distance
+::::
+:::::
+
+## Columns with Code & Output
+
+::::: {.columns}
+:::: {.column width="50%"}
+**The Model**
+
+We fit a simple linear regression:
+
+$$\hat{y} = b_0 + b_1 x$$
+
+where $b_0$ and $b_1$ are estimated via OLS.
+::::
+
+:::: {.column width="50%"}
+```{r}
+#| echo: true
+#| fig-height: 4
+set.seed(42)
+x <- rnorm(50)
+y <- 2 + 3*x + rnorm(50)
+plot(x, y, pch = 19,
+     col = "#4A6FA5")
+abline(lm(y ~ x),
+       col = "#1B365D", lwd = 2)
+```
+::::
+:::::
+
+## Tabsets
+
+::: {.panel-tabset}
+### Summary Stats
+
+```{r}
+summary(mtcars[, c("mpg", "hp", "wt")])
+```
+
+### Correlation
+
+```{r}
+round(cor(mtcars[, c("mpg", "hp", "wt")]), 3)
+```
+
+### Model
+
+```{r}
+coef(summary(lm(mpg ~ hp + wt, data = mtcars)))
+```
+:::
+
+# Code & Output {.section-slide}
 
 ## R Code Example
 
@@ -36,8 +228,6 @@ x <- rnorm(100)
 ````
 
 ```{r}
-#| echo: true
-
 set.seed(42)
 x <- rnorm(100)
 y <- 2 * x + rnorm(100, sd = 0.5)
@@ -49,82 +239,135 @@ summary(lm(y ~ x))
 Use `#| output-location: column` to place output side-by-side.
 
 ```{r}
-#| echo: true
 #| output-location: column
 
 df <- data.frame(
   Treatment = rep(c("A", "B", "C"), each = 4),
-  Response = c(23, 25, 21, 24, 30, 32, 28, 31, 18, 20, 17, 19)
+  Response = c(23, 25, 21, 24,
+               30, 32, 28, 31,
+               18, 20, 17, 19)
 )
 df |> knitr::kable()
 ```
 
-# Special Features
+## R Plot Output
+
+```{r}
+#| fig-height: 4.5
+#| fig-width: 8
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "Motor Trend Car Road Tests",
+       x = "Weight (1000 lbs)", y = "Miles per Gallon",
+       color = "Cylinders")
+```
+
+## Code with Filename {.small-slide}
+
+Use `filename` to label code blocks:
+
+```{r}
+#| filename: "analysis.R"
+#| eval: false
+
+# Load and prepare data
+library(dplyr)
+data <- read.csv("experiment.csv") |>
+  filter(!is.na(response)) |>
+  mutate(group = factor(group))
+
+# Fit ANOVA
+model <- aov(response ~ group, data = data)
+summary(model)
+TukeyHSD(model)
+```
+
+# Math & Equations {.section-slide}
+
+## LaTeX Support
+
+**Inline math:** The sample mean is $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$.
+
+**Display math:**
+
+$$
+f(x \mid \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+$$
+
+**Aligned equations:**
+
+$$
+\begin{align}
+\hat{\beta} &= (X'X)^{-1}X'y \\
+\text{Var}(\hat{\beta}) &= \sigma^2 (X'X)^{-1} \\
+\hat{\sigma}^2 &= \frac{e'e}{n - p}
+\end{align}
+$$
+
+# Theme Features {.section-slide}
 
 ## Emphasis Classes
 
 Add emphasis using spans `[text]{.class}`:
 
-- `[important note]{.alert}` $\to$ [important note]{.alert}
-- `[highlighted]{.fg}` $\to$ [highlighted]{.fg}
-- `[background]{.bg}` $\to$ [background]{.bg}
-- `[key finding]{.highlight}` $\to$ [key finding]{.highlight}
-- `[side note]{.note}` $\to$ [side note]{.note}
-- `[caution]{.warning}` $\to$ [caution]{.warning}
+| Syntax | Result | Use Case |
+|--------|--------|----------|
+| `[text]{.alert}` | [important note]{.alert} | Key warnings |
+| `[text]{.fg}` | [highlighted]{.fg} | Accent emphasis |
+| `[text]{.bg}` | [background]{.bg} | Strong emphasis |
+| `[text]{.highlight}` | [key finding]{.highlight} | Highlights |
+| `[text]{.note}` | [side note]{.note} | Asides |
+| `[text]{.warning}` | [caution]{.warning} | Warnings |
 
-## Callout Examples
+## Standard Quarto Callouts
+
+::: {.callout-note}
+Note callouts are great for supplementary information.
+:::
+
+::: {.callout-important}
+Important callouts highlight critical warnings.
+:::
+
+::: {.callout-tip}
+Tip callouts suggest best practices and shortcuts.
+:::
+
+## Theme-Specific Callouts
 
 Use divs `::: {.callout-type}` for custom boxes:
 
-```markdown
 ::: {.callout-example}
-This is a worked example...
-:::
-```
-
-::: {.callout-example}
-This is a worked example using the academic theme.
+Consider a study with $n = 30$ subjects. The sample mean is $\bar{x} = 5.2$ with $s = 1.8$. A 95% CI for $\mu$ is $(4.53, 5.87)$.
 :::
 
 ::: {.callout-question}
-How does this compare to the UNM-branded version?
+How does increasing the sample size affect the width of the confidence interval?
 :::
 
 ::: {.callout-insight}
-The academic theme uses a navy/slate palette for a neutral academic look.
+The CI width decreases at rate $1/\sqrt{n}$, so quadrupling the sample size halves the interval width.
 :::
 
-## Font Sizing Utilities
+## Table Example {#table-example}
 
-Apply size classes to spans or divs:
+Standard Markdown tables with automatic striped rows:
 
-::::: {.columns}
-:::: {.column width="50%"}
-- `[.larger]{.larger}` $\to$ [1.50em]{.larger}
-- `[.large]{.large}` $\to$ [1.25em]{.large}
-- Normal text (1em)
-- `[.small]{.small}` $\to$ [0.80em]{.small}
-- `[.smaller]{.smaller}` $\to$ [0.64em]{.smaller}
-::::
-:::: {.column width="50%"}
-Code blocks scale too:
-
-::: {.small}
-```r
-# .small code block
-summary(lm(y ~ x))
-```
-:::
-::::
-:::::
+| Source    | DF  | SS    | MS    | F     | $p$-value |
+|-----------|-----|-------|-------|-------|-----------|
+| Treatment | 2   | 312.0 | 156.0 | 52.00 | < .001    |
+| Error     | 9   | 27.0  | 3.0   |       |           |
+| Total     | 11  | 339.0 |       |       |           |
 
 ## Alignment & Buttons {.small-slide}
 
 ### Text alignment
 
-- `[Left]{.left}` $\to$ [Left-aligned text]{.left}
-- `[Center]{.center}` $\to$ [Centered text]{.center}
-- `[Right]{.right}` $\to$ [Right-aligned text]{.right}
+- `{.left}` → [Left-aligned text]{.left}
+- `{.center}` → [Centered text]{.center}
+- `{.right}` → [Right-aligned text]{.right}
 
 ### Buttons and badges
 
@@ -134,44 +377,77 @@ summary(lm(y ~ x))
 - Badges: `[v1.1]{.badge}`
   - [v1.1.0]{.badge} [New]{.badge-secondary}
 
-## Table Example {#table-example}
+# Diagrams {.section-slide}
 
-Standard Markdown tables:
+## Mermaid Diagrams
 
-```markdown
-| Source    | DF  | SS   | MS   | F    |
-|-----------|-----|------|------|------|
-| Treatment | 2   | 312  | 156  | 52.0 |
+```{mermaid}
+flowchart LR
+  A[Collect Data] --> B{Assumptions Met?}
+  B -- Yes --> C[Fit Model]
+  B -- No --> D[Transform Data]
+  D --> B
+  C --> E[Interpret Results]
 ```
 
-| Source    | DF  | SS   | MS   | F    |
-|-----------|-----|------|------|------|
-| Treatment | 2   | 312  | 156  | 52.0 |
-| Error     | 9   | 27   | 3.0  |      |
-| Total     | 11  | 339  |      |      |
+## Graphviz Diagrams
 
-## Scrollable Slide Demo {.scrollable}
-
-Add `{.scrollable}` to the slide title for long content.
-
-`## Slide Title {.scrollable}`
-
-### Full Regression Output
-
-```{r}
-#| echo: true
-
-set.seed(42)
-n <- 200
-x1 <- rnorm(n)
-x2 <- rnorm(n)
-x3 <- rnorm(n)
-y <- 3 + 2*x1 - 1.5*x2 + 0.8*x3 + rnorm(n)
-fit <- lm(y ~ x1 + x2 + x3)
-summary(fit)
-confint(fit)
+```{dot}
+digraph G {
+  rankdir=LR;
+  node [shape=box, style=filled, fillcolor="#F5F7FA", color="#1B365D"];
+  edge [color="#4A6FA5"];
+  "Raw Data" -> "Clean" -> "Explore" -> "Model" -> "Report";
+}
 ```
 
-# Thank You
+# Vertical Alignment {.section-slide}
+
+## Centered Content {.center}
+
+This slide uses `{.center}` to vertically center all content.
+
+Perfect for title cards or key takeaways.
+
+**Key Finding:** The treatment effect was statistically significant ($p < .001$).
+
+# Summary {.section-slide}
+
+## What We Covered {.small-slide}
+
+::::: {.columns}
+:::: {.column width="50%"}
+### Typography
+
+- Text formatting & lists
+- Fragments & incremental
+- Font sizing utilities
+
+### Layouts
+
+- Multi-column layouts
+- Tabsets (panel-tabset)
+- Slide types (small, tiny, quote)
+::::
+
+:::: {.column width="50%"}
+### Code & Math
+
+- R code execution & plots
+- Column output
+- LaTeX equations
+
+### Theme Features
+
+- Emphasis classes (6 types)
+- Callouts (standard + custom)
+- Buttons, badges, alignment
+- Mermaid & Graphviz diagrams
+::::
+:::::
+
+## Thank You {.center}
 
 Questions?
+
+[alias@email.com](mailto:alias@email.com)

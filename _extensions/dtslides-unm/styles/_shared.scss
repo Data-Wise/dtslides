@@ -11,11 +11,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
-
-$img-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !default;
-$table-header-color: #222 !default;
 
 // ============================================================
 // 2. Base Styles
@@ -57,17 +53,19 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: $img-shadow;
   }
 }
 
 // ============================================================
 // 3. Headings
+// Use `.reveal` prefix to match RevealJS selector specificity.
+// RevealJS uses `.reveal h1, .reveal h2, ...` with
+// `margin: var(--r-heading-margin)` — bare `h2` loses.
 // ============================================================
 
-h1 {
+.reveal h1 {
   color: $heading-h1-color;
-  font-weight: bolder;
+  font-weight: 600;
   font-size: $presentation-h1-font-size;
   font-family: $heading-font-family;
   text-align: center;
@@ -76,24 +74,24 @@ h1 {
   line-height: $presentation-heading-line-height;
 }
 
-h2 {
+.reveal h2 {
   color: $heading-h2-color;
-  font-weight: bolder;
+  font-weight: 500;
   font-size: $presentation-h2-font-size;
   text-align: center;
-  margin: 0 0 $spacing-xxs 0;
+  margin: 0 0 $spacing-xl 0;
   padding: 0;
   line-height: $presentation-heading-line-height;
 }
 
-h3 {
+.reveal h3 {
   color: $heading-h3-color;
   font-weight: normal;
   font-size: $presentation-h3-font-size;
   padding-left: $spacing-xs;
 }
 
-h4 {
+.reveal h4 {
   color: $heading-h4-color;
   font-weight: normal;
   margin-top: 0;
@@ -118,7 +116,7 @@ h4 {
   font-size: inherit;
   background-color: $code-block-bg;
   border-radius: 6px;
-  padding: $spacing-xs;
+  padding: $spacing-md;
   font-family: $code-font-family;
   overflow-x: auto;
   white-space: pre-wrap;
@@ -189,12 +187,12 @@ h4 {
 .smaller { font-size: 0.64em; }
 .smallest { font-size: 0.512em; }
 
-.reveal .largest pre  { font-size: 3.41rem; }
-.reveal .larger pre   { font-size: 2.73rem; }
-.reveal .large pre    { font-size: 2.19rem; }
-.reveal .small pre    { font-size: 1.4rem; }
-.reveal .smaller pre  { font-size: 1.12rem; }
-.reveal .smallest pre { font-size: 0.986rem; }
+.reveal .largest pre  { font-size: 1.20em; }
+.reveal .larger pre   { font-size: 1.50em; }
+.reveal .large pre    { font-size: 1.25em; }
+.reveal .small pre    { font-size: 0.8em; }
+.reveal .smaller pre  { font-size: 0.64em; }
+.reveal .smallest pre { font-size: 0.512em; }
 
 .reveal .largest code  { font-size: 1.56em; }
 .reveal .larger code   { font-size: 1.25em; }
@@ -243,8 +241,8 @@ h4 {
 
 .reveal .slide ul li,
 .reveal .slide ol li {
-  margin-top: 0.2em;
-  margin-bottom: 0.2em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
 }
 
 // Tighten nested lists slightly
@@ -273,11 +271,11 @@ h4 {
   th {
     text-align: left;
     background-color: $table-header-bg;
-    color: $table-header-color;
+    color: $body-color;
     padding: $spacing-xs;
-    border-bottom: 3px double $table-border-color;
+    border-bottom: 2px solid $table-border-color;
     font-weight: bold;
-    font-size: 1.05em;
+    text-transform: uppercase;
   }
 
   td {
@@ -498,7 +496,7 @@ h4 {
 }
 
 .references {
-  font-size: 0.7rem;
+  font-size: 0.6em;
 }
 
 // ============================================================
@@ -596,16 +594,11 @@ h4 {
 
 .slide-number,
 .reveal.has-logo .slide-number {
-  bottom: 15px !important;
-  right: 15px !important;
+  bottom: 10px !important;
+  right: 10px !important;
   top: unset !important;
-  color: $body-color !important;
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  padding: 4px 10px !important;
-  border-radius: 12px !important;
-  font-family: $font-family-monospace !important;
-  font-size: 0.6em !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: $body-color;
+  font-family: $font-family-sans-serif;
 }
 
 .reveal .slide-menu-button {
@@ -618,45 +611,47 @@ h4 {
 
 // ============================================================
 // 18. Standard Quarto Callouts (Enhanced)
+// Use `div.callout` to match Quarto's built-in selector
+// specificity (.reveal div.callout...) which otherwise wins.
 // ============================================================
 
-.reveal .callout {
+.reveal div.callout {
   border-radius: 0;
 }
 
-.reveal .callout-style-default,
-.reveal .callout-style-simple {
+.reveal div.callout.callout-style-default,
+.reveal div.callout.callout-style-simple {
   border: solid lighten($table-border-color, 20%) 1px;
 }
 
-.reveal .callout.callout-style-simple .callout-title,
-.reveal .callout.callout-style-default .callout-title {
-  font-size: 1.6rem;
+.reveal div.callout.callout-style-simple div.callout-title,
+.reveal div.callout.callout-style-default div.callout-title {
+  font-size: 1.1em;
 }
 
-.reveal .callout.callout-style-simple .callout-content,
-.reveal .callout.callout-style-default .callout-content {
-  font-size: 1.4rem;
+.reveal div.callout.callout-style-simple div.callout-content,
+.reveal div.callout.callout-style-default div.callout-content {
+  font-size: 0.95em;
 }
 
-.reveal .callout.callout-titled .callout-title p {
-  margin-top: 0.2rem;
+.reveal div.callout.callout-titled .callout-title p {
+  margin-top: 0.2em;
   margin-bottom: 0;
 }
 
-.reveal .callout.callout-titled .callout-body > .callout-content > :last-child {
-  margin-bottom: 0.1rem;
+.reveal div.callout.callout-titled .callout-body > .callout-content > :last-child {
+  margin-bottom: 0.1em;
 }
 
-.reveal .callout.callout-style-simple .callout-icon::before,
-.reveal .callout.callout-style-default .callout-icon::before {
-  height: 1.4rem;
-  width: 1.4rem;
-  background-size: 1.3rem 1.3rem;
+.reveal div.callout.callout-style-simple .callout-icon::before,
+.reveal div.callout.callout-style-default .callout-icon::before {
+  height: 1em;
+  width: 1em;
+  background-size: 0.95em 0.95em;
 }
 
-.reveal .callout.callout-titled .callout-icon::before {
-  margin-top: 0.6rem;
+.reveal div.callout.callout-titled .callout-icon::before {
+  margin-top: 0.25em;
 }
 
 .reveal div.callout-note.callout-style-default .callout-title {

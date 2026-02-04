@@ -69,10 +69,10 @@ $font-family-monospace: "Fira Code", monospace !default;
 $font-family-heading: "Lato", sans-serif;
 
 // --- Font Sizes ---
-$font-size-root: 30px;
+$font-size-root: 32px;
 $font-size: 1em !default;
 $font-size-medium-small: 0.8em !default;
-$font-size-small: 0.6em !default;
+$font-size-small: 0.75em !default;
 $font-size-tiny: 0.4em !default;
 
 // --- Spacing ---
@@ -101,7 +101,7 @@ $presentation-font-smaller: $font-size-medium-small !default;
 // --- Code Block Settings ---
 $code-line-height: 1.4 !default;
 $code-font-family: $font-family-monospace !default;
-$code-block-font-size: 0.55em !default;
+$code-block-font-size: 0.65em !default;
 $code-block-bg: #eef2f5 !default;
 $code-output-bg: #f8f9fa !default;
 
