@@ -171,5 +171,5 @@ Pre-built slide layouts users can reference:
 ## Technical Debt to Address
 
 - ~~**`_shared.scss` duplication**~~ — ✅ Resolved via relative symlink (`_extensions/dtslides-unm/styles/_shared.scss -> ../../dtslides/styles/_shared.scss`). Edits to the canonical copy automatically apply to both themes.
-- **MathJax 2 → 3 migration** — The `_extension.yml` references MathJax 3 CDN but the rendered output loads MathJax 2.7.9 (Quarto's bundled version). Clarify which version is active and whether custom font config differs.
-- **RevealJS plugin loading** — `unm-revealjs.js` (shuffle keybinding on 'T') only exists in `dtslides-unm`. Consider whether the academic theme needs similar functionality.
+- ~~**MathJax 2 → 3 migration**~~ — ✅ Resolved. The `html-math-method` block was at the top level of `_extension.yml` (dead config). Moved `html-math-method: mathjax` inside `contributes > formats > revealjs:`, which tells Quarto to use MathJax 3. The RevealJS `math.js` plugin throws a non-fatal console error (it expects MathJax 2 API), but rendering works correctly since Quarto handles math via Pandoc's HTML output which MathJax 3 picks up directly.
+- **RevealJS plugin loading** — `unm-revealjs.js` is dead code: a boilerplate Quarto extension template that binds `T` to `deck.shuffle()`. It's not registered in `_extension.yml` (no `revealjs-plugins:` key) and never loads. Safe to delete or repurpose for actual functionality (e.g., the footer toggle could have gone here instead of `include-after-body`).

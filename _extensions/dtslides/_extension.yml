@@ -27,9 +27,6 @@ contributes:
       slide-number: true
       code-copy: false
       margin: 0.10
+      html-math-method: mathjax
 
     date-format: long
-
-html-math-method:
-  method: mathjax
-  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
