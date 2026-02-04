@@ -7,16 +7,12 @@ contributes:
   formats:
     revealjs:
       theme: [simple, "styles/custom.scss"]
+      width: 1050
+      height: 700
+      margin: 0.10
       logo: "images/ms-logo.png"
-      title-slide-attributes:
-        data-background-image: "images/unm-title-slide.png"
-        data-background-size: "520px 150px"
-        data-background-position: bottom
-        data-background-opacity: "0.9"
-        data-background-repeat: "no-repeat"
       slide-number: true
       code-copy: false
-      margin: 0.08
 
     date-format: long
 

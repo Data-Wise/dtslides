@@ -24,6 +24,17 @@ This presentation demonstrates the **academic** theme — a clean, neutral desig
 
 ## R Code Example
 
+Standard R code blocks:
+
+````markdown
+```{{r}}
+#| echo: true
+set.seed(42)
+x <- rnorm(100)
+...
+```
+````
+
 ```{r}
 #| echo: true
 
@@ -34,6 +45,8 @@ summary(lm(y ~ x))
 ```
 
 ## Code with Column Output {.small-slide}
+
+Use `#| output-location: column` to place output side-by-side.
 
 ```{r}
 #| echo: true
@@ -50,14 +63,24 @@ df |> knitr::kable()
 
 ## Emphasis Classes
 
-- [important note]{.alert} — alert emphasis
-- [highlighted]{.fg} — foreground color
-- [background]{.bg} — background accent
-- [key finding]{.highlight} — highlight
-- [side note]{.note} — note style
-- [caution]{.warning} — warning
+Add emphasis using spans `[text]{.class}`:
+
+- `[important note]{.alert}` $\to$ [important note]{.alert}
+- `[highlighted]{.fg}` $\to$ [highlighted]{.fg}
+- `[background]{.bg}` $\to$ [background]{.bg}
+- `[key finding]{.highlight}` $\to$ [key finding]{.highlight}
+- `[side note]{.note}` $\to$ [side note]{.note}
+- `[caution]{.warning}` $\to$ [caution]{.warning}
 
 ## Callout Examples
+
+Use divs `::: {.callout-type}` for custom boxes:
+
+```markdown
+::: {.callout-example}
+This is a worked example...
+:::
+```
 
 ::: {.callout-example}
 This is a worked example using the academic theme.
@@ -73,21 +96,17 @@ The academic theme uses a navy/slate palette for a neutral academic look.
 
 ## Font Sizing Utilities
 
-Apply size classes to a slide or a div:
+Apply size classes to spans or divs:
 
-:::: {.columns}
-::: {.column width="50%"}
-[`.larger` — 1.50em]{.larger}
-
-[`.large` — 1.25em]{.large}
-
-Normal text (1em)
-
-[`.small` — 0.80em]{.small}
-
-[`.smaller` — 0.64em]{.smaller}
-:::
-::: {.column width="50%"}
+::::: {.columns}
+:::: {.column width="50%"}
+- `[.larger]{.larger}` $\to$ [1.50em]{.larger}
+- `[.large]{.large}` $\to$ [1.25em]{.large}
+- Normal text (1em)
+- `[.small]{.small}` $\to$ [0.80em]{.small}
+- `[.smaller]{.smaller}` $\to$ [0.64em]{.smaller}
+::::
+:::: {.column width="50%"}
 Code blocks scale too:
 
 ::: {.small}
@@ -96,26 +115,34 @@ Code blocks scale too:
 summary(lm(y ~ x))
 ```
 :::
-:::
 ::::
+:::::
 
 ## Alignment & Buttons {.small-slide}
 
 ### Text alignment
 
-[Left-aligned text]{.left}
-
-[Centered text]{.center}
-
-[Right-aligned text]{.right}
+- `[Left]{.left}` $\to$ [Left-aligned text]{.left}
+- `[Center]{.center}` $\to$ [Centered text]{.center}
+- `[Right]{.right}` $\to$ [Right-aligned text]{.right}
 
 ### Buttons and badges
 
-[[Jump to Table Slide]{.button}](#table-example)
+- Button: `[[Text]{.button}](#link)`
+  - [[Jump to Table Slide]{.button}](#table-example)
 
-Inline labels: [v1.1.0]{.badge} [New]{.badge-secondary}
+- Badges: `[v1.1]{.badge}`
+  - [v1.1.0]{.badge} [New]{.badge-secondary}
 
 ## Table Example {#table-example}
+
+Standard Markdown tables:
+
+```markdown
+| Source    | DF  | SS   | MS   | F    |
+|-----------|-----|------|------|------|
+| Treatment | 2   | 312  | 156  | 52.0 |
+```
 
 | Source    | DF  | SS   | MS   | F    |
 |-----------|-----|------|------|------|
@@ -125,7 +152,9 @@ Inline labels: [v1.1.0]{.badge} [New]{.badge-secondary}
 
 ## Scrollable Slide Demo {.scrollable}
 
-Add `{.scrollable}` to any slide with content that intentionally exceeds the viewport. The audience can scroll through the full content.
+Add `{.scrollable}` to the slide title for long content.
+
+`## Slide Title {.scrollable}`
 
 ### Full Regression Output
 

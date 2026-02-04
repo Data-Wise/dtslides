@@ -11,7 +11,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+$img-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !default;
+$table-header-color: #222 !default;
 
 // ============================================================
 // 2. Base Styles
@@ -53,6 +57,7 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    box-shadow: $img-shadow;
   }
 }
 
@@ -268,11 +273,11 @@ h4 {
   th {
     text-align: left;
     background-color: $table-header-bg;
-    color: $body-color;
+    color: $table-header-color;
     padding: $spacing-xs;
-    border-bottom: 2px solid $table-border-color;
+    border-bottom: 3px double $table-border-color;
     font-weight: bold;
-    text-transform: uppercase;
+    font-size: 1.05em;
   }
 
   td {
@@ -591,11 +596,16 @@ h4 {
 
 .slide-number,
 .reveal.has-logo .slide-number {
-  bottom: 10px !important;
-  right: 10px !important;
+  bottom: 15px !important;
+  right: 15px !important;
   top: unset !important;
-  color: $body-color;
-  font-family: $font-family-sans-serif;
+  color: $body-color !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  padding: 4px 10px !important;
+  border-radius: 12px !important;
+  font-family: $font-family-monospace !important;
+  font-size: 0.6em !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .reveal .slide-menu-button {
