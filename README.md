@@ -1,9 +1,13 @@
 # dtslides — Quarto Reveal.js Themes
 
-A Quarto extension providing two reveal.js presentation themes:
+A Quarto extension providing two reveal.js presentation themes with a shared layout architecture.
 
-- **Academic** (`dtslides-revealjs`) — Clean, neutral navy/slate palette for any institution
-- **UNM** (`dtslides-unm-revealjs`) — University of New Mexico branded with UNM colors and logos
+| Theme        | Format string            | Palette                                                  |
+|--------------|--------------------------|----------------------------------------------------------|
+| **Academic** | `dtslides-revealjs`      | Navy / slate — clean, institution-neutral                |
+| **UNM**      | `dtslides-unm-revealjs`  | Cherry / turquoise — University of New Mexico branding   |
+
+Requires Quarto >= 1.6.0.
 
 ## Installing
 
@@ -11,12 +15,43 @@ A Quarto extension providing two reveal.js presentation themes:
 quarto add Data-Wise/dtslides
 ```
 
-This will install the extension under the `_extensions` subdirectory.
-If you're using version control, you will want to check in this directory.
+This installs both themes under `_extensions/`. Check the directory into version control.
+
+## Upgrading from unm-revealjs
+
+If you previously used the `unm-revealjs` extension (v1.0.x), follow these steps:
+
+1. Remove the old extension directory:
+
+   ```bash
+   rm -rf _extensions/unm
+   ```
+
+2. Install the new extension:
+
+   ```bash
+   quarto add Data-Wise/dtslides
+   ```
+
+3. Update your YAML front matter:
+
+   ```yaml
+   # Before
+   format:
+     unm-revealjs:
+       slide-number: c/t
+
+   # After
+   format:
+     dtslides-unm-revealjs:
+       slide-number: c/t
+   ```
+
+All CSS classes, callouts, and slide options work the same way — only the format string changed.
 
 ## Using
 
-### Academic Theme (generic)
+### Academic theme
 
 ```yaml
 format:
@@ -24,31 +59,128 @@ format:
     slide-number: c/t
 ```
 
-### UNM Theme (university branded)
+### UNM theme
 
 ```yaml
 format:
   dtslides-unm-revealjs:
     slide-number: c/t
-    chalkboard:
-      theme: chalkboard
 ```
+
+## Features
+
+Both themes share a 700+ line layout partial (`_shared.scss`) providing consistent slide components regardless of which color palette you choose. See [REFERENCE.md](REFERENCE.md) for the full class list with usage examples.
+
+### Slide types
+
+Apply as a class on any slide (`## Title {.small-slide}`):
+
+| Class                | Effect                                       |
+|----------------------|----------------------------------------------|
+| `.small-slide`       | Reduced font size for dense content          |
+| `.tiny-slide`        | Even smaller — useful for reference tables   |
+| `.quote-slide`       | Centered text with styled blockquote         |
+| `.image-slide`       | Minimal chrome, image-focused                |
+| `.section-slide`     | Large centered heading for section dividers  |
+| `.slide-code`        | Optimized for code-heavy slides              |
+| `.large-image-slide` | Full-height image display                    |
+| `.scrollable`        | Enable vertical scrolling on a slide         |
+
+### Emphasis classes
+
+Inline spans for highlighting content (`[text]{.alert}`):
+
+| Class        | Effect                                                      |
+|--------------|-------------------------------------------------------------|
+| `.alert`     | Bold text in the theme's alert color with tinted background |
+| `.fg`        | Bold text in the theme's accent color                       |
+| `.bg`        | White text on the theme's accent background                 |
+| `.highlight` | Yellow/gold highlighted text                                |
+| `.note`      | Italic text with tinted background                          |
+| `.warning`   | Bold warning-colored text with tinted background            |
+
+### Custom callouts
+
+Div-based callouts with auto-generated titles (`:::{.callout-example} ... :::`):
+
+| Class               | Icon     | Color (Academic / UNM) |
+|---------------------|----------|------------------------|
+| `.callout-example`  | Example  | Green / Green          |
+| `.callout-question` | Question | Primary / Cherry       |
+| `.callout-insight`  | Insight  | Blue / Turquoise       |
+
+Standard Quarto callouts (`.callout-note`, `.callout-warning`, etc.) are also styled.
+
+### Font sizing utilities
+
+Apply to a slide or a div to scale text:
+
+| Class       | Scale  |
+|-------------|--------|
+| `.larger`   | 1.50em |
+| `.largest`  | 1.20em |
+| `.large`    | 1.25em |
+| `.small`    | 0.80em |
+| `.smaller`  | 0.64em |
+| `.smallest` | 0.51em |
+
+Code blocks inside these containers scale proportionally.
+
+### Other utilities
+
+| Class                                          | Purpose                            |
+|------------------------------------------------|------------------------------------|
+| `.left`, `.center`, `.right`                   | Text alignment                     |
+| `.v-center`, `.v-top`, `.v-bottom`             | Vertical alignment (grid-based)    |
+| `.button`                                      | Styled link button with play icon  |
+| `.badge`, `.badge-primary`, `.badge-secondary` | Inline label badges                |
+| `.citation`                                    | Smaller, muted citation text       |
+| `.references`                                  | Compact reference list             |
+
+### Code blocks
+
+- Syntax-highlighted source code with Fira Code font
+- R console output gets a distinct lighter background with an accent-colored left border
+- `code-copy: false` by default (can override in YAML)
+
+### Tables
+
+- Striped rows, uppercase headers, no hover effect
+- DataTable component sizing included for interactive tables
 
 ## Examples
 
-- [Academic Theme Example](example-academic.qmd)
-- [UNM Theme Example](example.qmd)
-- [UNM Extended Example](example-long.qmd)
-- [Template](template.qmd)
+- [example-academic.qmd](example-academic.qmd) — Academic theme: callouts, emphasis, code, scrollable slides
+- [example.qmd](example.qmd) — UNM theme: core features showcase
+- [example-long.qmd](example-long.qmd) — UNM theme: extended demo with more slide types
+- [template.qmd](template.qmd) — UNM theme: minimal starting template
 
-## Reference
+## Architecture
 
-This Quarto extension is inspired by [quarto-revealjs-clean](https://github.com/grantmcdermott/quarto-revealjs-clean) by Grant McDermott, adapted for academic and University of New Mexico use.
+Both themes import a shared `_shared.scss` partial that contains all color-agnostic layout rules. Each theme defines only its color variables (~100 lines), then `@import '_shared'` pulls in the full layout.
+
+```text
+_extensions/
+├── dtslides/           # Academic theme
+│   └── styles/
+│       ├── academic.scss    ← color variables (navy/slate)
+│       └── _shared.scss     ← shared layout (712 lines)
+└── dtslides-unm/       # UNM theme
+    └── styles/
+        ├── custom.scss      ← color variables (cherry/turquoise)
+        └── _shared.scss     ← synced copy of shared layout
+```
+
+> **Note for contributors:** The two `_shared.scss` files must be kept in sync. After editing one, copy it to the other. See [CLAUDE.md](CLAUDE.md) for details.
+
+## Acknowledgments
+
+Inspired by [quarto-revealjs-clean](https://github.com/grantmcdermott/quarto-revealjs-clean) by Grant McDermott.
 
 ## License
 
-This project is licensed under the terms of the [MIT License](LICENSE).
+[MIT](LICENSE)
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to open an issue or submit a pull request.
+Issues and pull requests welcome at [Data-Wise/dtslides](https://github.com/Data-Wise/dtslides).

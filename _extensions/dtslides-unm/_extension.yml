@@ -7,19 +7,29 @@ contributes:
   formats:
     revealjs:
       theme: [simple, "styles/custom.scss"]
+      include-after-body:
+        - text: |
+            <script>
+            (function() {
+              function toggleFooter() {
+                var f = document.querySelector(".reveal > .footer");
+                if (!f || typeof Reveal === "undefined") return;
+                var i = Reveal.getIndices();
+                f.style.display = (i.h === 0 && i.v === 0) ? "none" : "block";
+              }
+              if (typeof Reveal !== "undefined") {
+                Reveal.on("slidechanged", toggleFooter);
+                Reveal.on("ready", toggleFooter);
+                if (Reveal.isReady()) toggleFooter();
+              }
+            })();
+            </script>
+      width: 1050
+      height: 700
+      margin: 0.10
       logo: "images/ms-logo.png"
-      title-slide-attributes:
-        data-background-image: "images/unm-title-slide.png"
-        data-background-size: "520px 150px"
-        data-background-position: bottom
-        data-background-opacity: "0.9"
-        data-background-repeat: "no-repeat"
       slide-number: true
       code-copy: false
-      margin: 0.08
+      html-math-method: mathjax
 
     date-format: long
-
-html-math-method:
-  method: mathjax
-  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"

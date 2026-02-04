@@ -33,11 +33,12 @@ $heading-h1-color: $unm-green-chile;
 $heading-h2-color: $unm-cherry;
 $heading-h3-color: $unm-lobo-gray;
 $heading-h4-color: $unm-green-chile;
-$heading-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$heading-font-family: "Merriweather", serif;
 
 // --- Table Colors ---
-$table-header-bg: $unm-silver;
-$table-stripe-bg: lighten($unm-sandia-sunset, 50%);
+$table-header-bg: $unm-cherry;
+$table-header-color: #ffffff;
+$table-stripe-bg: lighten($unm-silver, 25%);
 $table-border-color: $unm-lobo-gray;
 
 // --- Emphasis Colors ---
@@ -52,7 +53,12 @@ $emphasis-warning: $unm-terra;
 $callout-example-color: $unm-green-chile;
 $callout-question-color: $unm-sandia-sunset;
 $callout-insight-color: $unm-turquoise;
-$callout-note-title-bg: lighten($unm-green-chile, 30%);
+$callout-note-title-bg: lighten($unm-turquoise, 45%);
+$callout-note-color: $unm-turquoise;
+$callout-tip-color: $unm-green-chile;
+$callout-important-color: $unm-cherry;
+$callout-warning-color: $unm-sandia-sunset;
+$callout-caution-color: $unm-high-noon;
 
 // --- Badge ---
 $badge-color: $unm-green-chile;
@@ -63,10 +69,10 @@ $font-family-monospace: "Fira Code", monospace !default;
 $font-family-heading: "Lato", sans-serif;
 
 // --- Font Sizes ---
-$font-size-root: 26px;
+$font-size-root: 32px;
 $font-size: 1em !default;
 $font-size-medium-small: 0.8em !default;
-$font-size-small: 0.6em !default;
+$font-size-small: 0.75em !default;
 $font-size-tiny: 0.4em !default;
 
 // --- Spacing ---
@@ -79,7 +85,7 @@ $spacing-xl: 2rem;
 $spacing-xxl: 3rem;
 
 // --- Line Heights ---
-$line-height-body: 1.3;
+$line-height-body: 1.6;
 $line-height-heading: 1.2;
 
 // --- Presentation Variables (Quarto) ---
@@ -95,12 +101,34 @@ $presentation-font-smaller: $font-size-medium-small !default;
 // --- Code Block Settings ---
 $code-line-height: 1.4 !default;
 $code-font-family: $font-family-monospace !default;
-$code-block-font-size: 0.55em !default;
+$code-block-font-size: 0.65em !default;
 $code-block-bg: #eef2f5 !default;
 $code-output-bg: #f8f9fa !default;
 
 /*-- scss:rules --*/
 
 @import '_shared';
+
+// --- Custom Overrides for Standard Callouts ---
+.reveal .callout.callout-style-default.callout-note {
+  border-left-color: $callout-note-color;
+  .callout-title { background-color: rgba($callout-note-color, 0.1); color: darken($callout-note-color, 10%); }
+  .callout-icon::before { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#{str-slice(#{$callout-note-color}, 2)}" class="bi bi-info-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>'); }
+}
+
+.reveal .callout.callout-style-default.callout-tip {
+  border-left-color: $callout-tip-color;
+  .callout-title { background-color: rgba($callout-tip-color, 0.1); color: darken($callout-tip-color, 10%); }
+}
+
+.reveal .callout.callout-style-default.callout-important {
+  border-left-color: $callout-important-color;
+  .callout-title { background-color: rgba($callout-important-color, 0.1); color: darken($callout-important-color, 10%); }
+}
+
+.reveal .callout.callout-style-default.callout-warning {
+  border-left-color: $callout-warning-color;
+  .callout-title { background-color: rgba($callout-warning-color, 0.1); color: darken($callout-warning-color, 10%); }
+}
 
 /*-- scss:mixins --*/

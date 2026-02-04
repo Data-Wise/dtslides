@@ -1,247 +1,291 @@
 ---
-title: "Template UNM reveal.js"
+title: "dtslides Feature Showcase"
+subtitle: "A Comprehensive Guide to Quarto RevealJS & dtslides"
 format:
   dtslides-unm-revealjs:
     slide-number: c/t
+    chalkboard: true
 author:
   - name: Your Name
     orcid: 0000-0000-0000-0000
     email: alias@email.com
-    affiliations: Your Institution
-# date: last-modified
-execute: 
-  echo: true 
+    affiliations: Department of Examples
+date: last-modified
+execute:
+  echo: true
 ---
 
 # Introduction {.section-slide}
 
-## Overview
+## About This Showcase
 
-In mathematical statistics, well-structured experimental designs and robust
-analytical methods are essential for drawing valid conclusions about treatment
-effects. A fundamental design is the **Completely Randomized Design (CRD)**, where
-each experimental unit is randomly assigned to one of several treatments without
-incorporating any blocking factors.
+This presentation demonstrates the capabilities of the **dtslides** extension for Quarto RevealJS. 
 
-### Key Analytic Tool:
+It covers:
 
--   Tests whether at least two of several treatment means differ significantly.
--   Provides a framework for linear modeling, least squares estimation, and
-    hypothesis testing.
+-   Markdown & Typography
+-   Layouts & Columns
+-   Code & Syntax Highlighting
+-   Math & Equations
+-   Custom Theme Classes
+-   Interactive Elements
 
-## Learning Objectives
+# Typography & Basics {.section-slide}
 
-1.  Understand the rationale and structure of the CRD.
-2.  Carry out a randomization procedure and interpret why coding treatments matters.
-3.  Formulate and apply the one-way ANOVA model (including assumptions).
-4.  Explore estimability, least squares estimation, and the distribution of
-    estimators.
-5.  Use the ANOVA test to decide if treatments differ significantly.
-6.  Calculate sample size and power for planning experiments.
-7.  Demonstrate R-based procedures for randomization, modeling, and ANOVA.
+## Text Formatting
 
-# CRD Overview
+We support standard Markdown formatting:
 
-## Definition and Rationale
+-   **Bold text** for emphasis
+-   *Italic text* for nuance
+-   ~~Strikethrough~~ for deletions
+-   `Inline code` for technical terms
+-   [Links to resources](https://quarto.org)
 
-A **Completely Randomized Design (CRD)**:
+> "Blockquotes are useful for citing sources or highlighting key concepts."
 
--   **Definition:** Each experimental unit is randomly assigned to a single
-    treatment, with no blocking.
--   **Advantages:** Simplicity, straightforward randomization, easy analysis.
--   **When to Use:** When no major nuisance factors (e.g., time, location) need
-    special control.
+## Lists & Fragments
 
-## Example Scenarios
+Lists can be revealed sequentially using fragments:
 
-1.  Comparing three battery types: alkaline, lithium, and nickel-cadmium. Randomly
-    assign each battery to a type and measure voltage endurance, measured in hours.
+::: {.fragment}
+1.  First item (appears first)
+:::
+::: {.fragment}
+2.  Second item (appears second)
+:::
+::: {.fragment}
+3.  Third item (appears last)
+    -   Nested item A
+    -   Nested item B
+:::
 
-2.  Example from Public Health: Testing three diets for weight loss, randomly
-    assigning participants to each diet. The diets could be low-carb, low-fat, and
-    Mediterranean. The outcome could be weight loss in pounds.
+## Slide Sizes {.small-slide}
 
-3.  Examle from Psychology: Testing three study techniques for memory retention,
-    randomly assigning students to each technique. The study techniques could be
-    reading, flashcards, and practice tests. The outcome could be the number of words
-    recalled.
+This slide uses the `.small-slide` class.
 
-## Flowchart of CRD Steps
+-   Content is smaller (80% size).
+-   Useful for slides with slightly more content.
+-   Still maintains readability.
 
-```{mermaid}
-%%| echo: false
-%%| fig-align: center
-flowchart TB
-    A[Define Objectives] --> B[Identify Treatments]
-    B --> C[Determine Sample Size]
-    C --> D[Randomly Assign Units]
-    D --> E[Collect Data]
-    E --> F[Perform ANOVA & Interpret]
+## Tiny Slide {.tiny-slide}
+
+This slide uses the `.tiny-slide` class (40% size).
+
+1.  This is useful for very dense information.
+2.  Reference lists.
+3.  Detailed code blocks that need to fit on one screen.
+4.  Appendix material.
+5.  Item 5
+6.  Item 6
+7.  Item 7
+8.  Item 8
+9.  Item 9
+10. Item 10
+
+# Layouts {.section-slide}
+
+## Multiple Columns
+
+::: {.columns}
+::: {.column width="50%"}
+### Left Column
+
+This column takes up 50% of the slide width.
+
+-   Point A
+-   Point B
+:::
+
+::: {.column width="50%"}
+### Right Column
+
+This column also takes up 50%.
+
+-   Point C
+-   Point D
+:::
+:::
+
+## Column Layouts with Images
+
+::: {.columns}
+::: {.column width="40%"}
+**Text & Context**
+
+You can place text on one side to explain a visual element.
+
+-   Explanation 1
+-   Explanation 2
+:::
+
+::: {.column width="60%"}
+![Placeholder Image](https://placehold.co/600x400)
+:::
+:::
+
+## Tabsets
+
+::: {.panel-tabset}
+### R Code
+
+```r
+library(ggplot2)
+ggplot(mtcars, aes(mpg, hp)) + geom_point()
 ```
 
-## R Implementation: Randomization Examples in CRD {.slide-code}
+### Python Code
+
+```python
+import matplotlib.pyplot as plt
+plt.scatter(mtcars["mpg"], mtcars["hp"])
+plt.show()
+```
+
+### Analysis
+
+Tabsets allow you to organize content without cluttering the slide. Great for switching between languages or results.
+:::
+
+# Code & Output {.section-slide}
+
+## R Code Execution
+
+Standard R code blocks with output:
 
 ```{r}
-
-N <- 12 # Number of experimental units, Step 1
-# Define experimental units and treatments
-experimental_units <- 1:N ## 10 experimental units
-treatments <- c("A", "B", "C") ## 3 treatments, Step 2
-
-# Repeat treatments to match the number of units. The code covers both balanced and unbalanced designs.
-treatments <- rep(treatments, length.out = N) ## Step 3
-
-# For a balanced design, we can also use:
-# treatments <- rep(treatments, each = N/length(treatments))
-
-# Shuffle (randomize) treatments randomly to assign to units, Step 4
-set.seed(123) ## For reproducibility
-randomized_treatments <- sample(treatments)
-
-# Create a data frame with randomized assignments
-randomization_crd <- data.frame(Unit = experimental_units, Treatment = randomized_treatments) ## Step 5
-print(randomization_crd)
+#| label: simple-plot
+#| fig-height: 4
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "Motor Trend Car Road Tests")
 ```
 
+## Side-by-Side Code & Output
 
-## Model Formulation
+Using `output-location: column`:
 
-Consider $v$ treatments, each with $n$ observations:
+```{r}
+#| output-location: column
+#| fig-height: 6
+# Generate data
+x <- rnorm(100)
+y <- 2 * x + rnorm(100)
 
-$$
-Y_{ij} = \mu + \tau_i + \varepsilon_{ij},
-$$
+# Fit model
+model <- lm(y ~ x)
 
--   $Y_{ij}$: Response from the $j$-th unit of treatment $i$.
--   $\mu$: Overall mean.
--   $\tau_i$: Effect of treatment $i$.
--   $\varepsilon_{ij}$: Random errors, assumed $\text{i.i.d. } N(0, \sigma^2)$.
+# Plot
+par(mar = c(4, 4, 1, 1))
+plot(x, y, pch = 19, col = "steelblue")
+abline(model, lwd = 2, col = "darkred")
+```
 
-**Null Hypothesis**: $H_0: \tau_1 = \tau_2 = \dots = \tau_v = 0$
+# Math & Equations {.section-slide}
 
-## Example
+## LaTeX Support
 
-If testing 4 different drug dosages (A, B, C, D) on patients' blood pressure
-reduction:
+Mathematical equations are rendered beautifully using MathJax.
 
--   $i$ in $\{A,B,C,D\}$
--   $\tau_i$ is each dosage's deviation from the overall mean
--   $\varepsilon_{ij}$ is random variation in patient responses
+**Inline math:** $E = mc^2$
 
-## Estimability and Least Squares Estimation-normal
-
-- Not all model parameters ($\tau_i$) are independently estimable. 
-- However, **estimable functions**, linear combinations of parameters that correspond to expected values of observed data, can be estimated uniquely.
-
-
-The least squares estimators (LSEs) solve the normal equations obtained by
-minimizing the sum of squared errors (SSE):
+**Display math:**
 
 $$
-\text{SSE} = \sum_{i=1}^v \sum_{j=1}^n (Y_{ij} - \hat{\mu}_i)^2,
-$$ {#eq-sse}
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0
+$$
 
-where $\hat{\mu}_i$ is the estimated mean for treatment $i$. The LSE for each
-treatment mean $\mu_i = \mu + \tau_i$ is simply the sample mean
-$\bar{Y}_i = \frac{1}{n}\sum_{j=1}^n Y_{ij}$.
-
-
-## Estimability and Least Squares Estimation-small{.small-slide}
-
-- Not all model parameters ($\tau_i$) are independently estimable. 
-- However, **estimable functions**, linear combinations of parameters that correspond to expected values of observed data, can be estimated uniquely.
-
-
-The least squares estimators (LSEs) solve the normal equations obtained by
-minimizing the sum of squared errors (SSE):
+**Aligned equations:**
 
 $$
-\text{SSE} = \sum_{i=1}^v \sum_{j=1}^n (Y_{ij} - \hat{\mu}_i)^2,
-$$ {#eq-sse}
-
-where $\hat{\mu}_i$ is the estimated mean for treatment $i$. The LSE for each
-treatment mean $\mu_i = \mu + \tau_i$ is simply the sample mean
-$\bar{Y}_i = \frac{1}{n}\sum_{j=1}^n Y_{ij}$.
-
-## Estimability and Least Squares Estimation-tiny {.tiny-slide}
-
-- Not all model parameters ($\tau_i$) are independently estimable. 
-- However, **estimable functions**, linear combinations of parameters that correspond to expected values of observed data, can be estimated uniquely.
-
-
-The least squares estimators (LSEs) solve the normal equations obtained by
-minimizing the sum of squared errors (SSE):
-
+\begin{align}
+f(x) &= a x^2 + b x + c \\
+f'(x) &= 2 a x + b
+\end{align}
 $$
-\text{SSE} = \sum_{i=1}^v \sum_{j=1}^n (Y_{ij} - \hat{\mu}_i)^2,
-$$ {#eq-sse}
 
-where $\hat{\mu}_i$ is the estimated mean for treatment $i$. The LSE for each
-treatment mean $\mu_i = \mu + \tau_i$ is simply the sample mean
-$\bar{Y}_i = \frac{1}{n}\sum_{j=1}^n Y_{ij}$.
+# Theme Features {.section-slide}
 
-## ANOVA Table
+## Custom Classes
 
-| Source    | DF      | SS               | MS              | F-ratio |
-| --------- | ------- | ---------------- | --------------- | ------- |
-| Treatment | $v-1$   | $SS_{Treatment}$ | MST=SST/$v-1$   | MST/MSE |
-| Error     | $N - v$ | $SSE_{Error}$   | MSE=SSE/$N - v$ |         |
-| Total     | $N - 1$ | $SS_{Total}$     |                 |         |
+The `dtslides` theme includes special utility classes:
 
+-   [Alert text]{.alert} for emphasis (`.alert`)
+-   [Custom Foreground]{.fg style="--col: #e64173"} (`.fg`)
+-   [Highlighted text]{.highlight} (`.highlight`)
+-   [Note style]{.note} (`.note`)
+-   [Warning style]{.warning} (`.warning`)
 
-## Flowchart of Experimental Design Steps {.large-image-slide}
+## Standard Callouts
+
+::: {.callout-note}
+Note callouts are great for non-critical information.
+:::
+
+::: {.callout-important}
+Important callouts highlight critical warnings.
+:::
+
+::: {.callout-tip}
+Tip callouts suggest best practices.
+:::
+
+## Theme-Specific Callouts
+
+The theme provides custom semantic callouts:
+
+::: {.callout-example}
+**Example:**
+A worked problem or specific case study.
+:::
+
+::: {.callout-question}
+**Question:**
+A prompt for audience reflection or discussion.
+:::
+
+::: {.callout-insight}
+**Insight:**
+A deeper observation or key takeaway.
+:::
+
+# Diagrams {.section-slide}
+
+## Mermaid Diagrams
+
+```{mermaid}
+flowchart LR
+  A[Start] --> B{Decision}
+  B -- Yes --> C[OK]
+  B -- No --> D[Retry]
+  D --> B
+```
+
+## Graphviz
 
 ```{dot}
-//| label: fig-doe-plan-flowchart
-//| fig-cap: "Experimental Design Planning Flowchart"
-//| echo: false
-
-digraph ExperimentalDesign {
-    rankdir=TB;
-    node [shape=box, style=filled, fontname="Arial"];
-
-    // Color-coded groups
-    subgraph cluster_planning {
-        label = "Planning";
-        color = lightblue;
-        "Define Objectives" [fillcolor=lightblue];
-        "Identify Sources of Variation" [fillcolor=lightblue];
-        "Choose Assignment Rules" [fillcolor=lightblue];
-    }
-
-    subgraph cluster_implementation {
-        label = "Implementation";
-        color = lightgreen;
-        "Specify Measurements & Procedure" [fillcolor=lightgreen];
-        "Identify Anticipated Difficulties" [fillcolor=lightgreen];
-        "Run Pilot Experiment" [fillcolor=lightgreen];
-    }
-
-    subgraph cluster_analysis {
-        label = "Analysis";
-        color = orange;
-        "Specify Statistical Model" [fillcolor=orange];
-        "Outline Analysis" [fillcolor=orange];
-        "Calculate Sample Size" [fillcolor=orange];
-    }
-
-    subgraph cluster_iteration {
-        label = "Iteration";
-        color = lightcoral;
-        "Review and Revise" [fillcolor=lightcoral];
-    }
-
-    // Connections
-    "Define Objectives" -> "Identify Sources of Variation";
-    "Identify Sources of Variation" -> "Choose Assignment Rules";
-    "Choose Assignment Rules" -> "Specify Measurements & Procedure";
-    "Specify Measurements & Procedure" -> "Identify Anticipated Difficulties";
-    "Identify Anticipated Difficulties" -> "Run Pilot Experiment";
-    "Run Pilot Experiment" -> "Specify Statistical Model";
-    "Specify Statistical Model" -> "Outline Analysis";
-    "Outline Analysis" -> "Calculate Sample Size";
-    "Calculate Sample Size" -> "Review and Revise";
-    "Review and Revise" -> "Define Objectives" [color=red, style=dashed];
-    "Review and Revise" -> "Identify Sources of Variation" [color=red, style=dashed];
+digraph G {
+  rankdir=LR;
+  start -> a0 -> a1 -> end;
 }
 ```
+
+# Conclusion {.section-slide}
+
+## Summary
+
+This template provides a robust foundation for academic and professional presentations.
+
+**Key features:**
+1.  Clean, readable typography.
+2.  Flexible layout options.
+3.  Rich code and math support.
+4.  Customizable thematic elements.
+
+## Thank You {.center}
+
+Questions?
+
+[contact@email.com](mailto:contact@email.com)

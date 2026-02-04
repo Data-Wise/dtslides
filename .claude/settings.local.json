@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(coderabbit:*)",
+      "Bash(gh search:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:m.canouil.dev)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:emilhvitfeldt.com)"
+    ]
+  }
+}

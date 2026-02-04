@@ -12,3 +12,9 @@ _quarto_internal_scss_error.scss
 *.code-workspace
 # Ignore system files
 .DS_Store
+
+# Playwright MCP screenshots
+.playwright-mcp/
+
+# Claude Code project instructions
+CLAUDE.md
