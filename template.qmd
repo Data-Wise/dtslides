@@ -79,12 +79,10 @@ df |> knitr::kable()
 
 # Sample Tables
 
-::: {.regular-table}
 | City | Population |
 |------|-----------:|
 | A    |       1000 |
 | B    |       2000 |
-:::
 
 
 # Thank You!

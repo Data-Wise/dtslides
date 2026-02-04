@@ -29,20 +29,20 @@ In `custom.scss:390`, the mixin declares `$padding-x: $spacing-x` but `$spacing-
 
 ### 1.2 Moderate Issues
 
-| # | Issue | Detail |
-|---|-------|--------|
-| 5 | Font loading redundancy | Roboto loaded in both SCSS and CSS files; Nunito loaded but never used |
-| 6 | Dead/unused CSS classes | `.section-slide`, `.large-image-slide`, `.slide-code` used in examples but undefined in any stylesheet |
-| 7 | `!important` overuse | `h2 color`, slide-number positioning, and many CSS-file rules use `!important` unnecessarily |
-| 8 | Hardcoded colors | `#333`, `#444`, `#f5f5f5` used outside the SCSS variable system |
-| 9 | Table hover effect | Row highlighting on mouse hover is distracting during presentations |
+| #   | Issue                   | Detail                                                                                          |
+|-----|-------------------------|-------------------------------------------------------------------------------------------------|
+| 5   | Font loading redundancy | Roboto loaded in both SCSS and CSS files; Nunito loaded but never used                          |
+| 6   | Dead/unused CSS classes | .section-slide, .large-image-slide, .slide-code used in examples but undefined                  |
+| 7   | !important overuse      | h2 color, slide-number positioning, and many CSS-file rules use !important unnecessarily        |
+| 8   | Hardcoded colors        | #333, #444, #f5f5f5 used outside the SCSS variable system                                      |
+| 9   | Table hover effect      | Row highlighting on mouse hover is distracting during presentations                             |
 
 ### 1.3 Minor Issues
 
-| # | Issue | Detail |
-|---|-------|--------|
-| 10 | Spacing comment mismatches | Comments say `2rem` / `1.5rem` but `$spacing-md` is `1rem` |
-| 11 | Double font-size on code blocks | Both `pre` and `pre code` independently set `$code-block-font-size`, compounding the tiny size |
+| #    | Issue                           | Detail                                                                                     |
+|------|---------------------------------|--------------------------------------------------------------------------------------------|
+| 10   | Spacing comment mismatches      | Comments say 2rem / 1.5rem but $spacing-md is 1rem                                         |
+| 11   | Double font-size on code blocks | Both pre and pre code independently set $code-block-font-size, compounding the tiny size   |
 
 ---
 
@@ -54,10 +54,10 @@ In `custom.scss:390`, the mixin declares `$padding-x: $spacing-x` but `$spacing-
 
 **User-facing format names after rename:**
 
-| Format string | Theme |
-|---------------|-------|
-| `format: dtslides-revealjs` | Generic academic (navy/slate palette) |
-| `format: dtslides-unm-revealjs` | UNM-branded (existing cherry/turquoise palette) |
+| Format string                  | Theme                                           |
+|--------------------------------|-------------------------------------------------|
+| format: dtslides-revealjs      | Generic academic (navy/slate palette)           |
+| format: dtslides-unm-revealjs  | UNM-branded (existing cherry/turquoise palette) |
 
 **Actions:**
 
@@ -94,16 +94,17 @@ In `custom.scss:390`, the mixin declares `$padding-x: $spacing-x` but `$spacing-
 
 ### 2.3 Fix R Code Block Styling
 
-| Property | Before | After | Rationale |
-|----------|--------|-------|-----------|
-| `$code-block-font-size` | `0.5rem` (8px) | `0.55em` | Relative to slide, scales with `.small-slide` etc. |
-| `pre code` font-size | `$code-block-font-size` (duplicated) | `inherit` | Prevent double-application of font-size |
-| `$code-line-height` | `1.2` | `1.4` | Better readability for R code |
-| `pre code` background | `#f5f5f5` (hardcoded) | `$code-block-bg` | Single variable controls both |
+| Property                | Before                            | After            | Rationale                                              |
+|-------------------------|-----------------------------------|------------------|--------------------------------------------------------|
+| `$code-block-font-size` | `0.5rem` (8px)                    | `0.55em`         | Relative to slide, scales with `.small-slide` etc.     |
+| `pre code` font-size    | `$code-block-font-size` (duped)   | `inherit`        | Prevent double-application of font-size                |
+| `$code-line-height`     | `1.2`                             | `1.4`            | Better readability for R code                          |
+| `pre code` background   | `#f5f5f5` (hardcoded)             | `$code-block-bg` | Single variable controls both                          |
 
-**New: R console output distinction**
+#### New: R console output distinction
 
 Add `.cell-output-stdout pre` styling with:
+
 - Slightly lighter background than source code
 - Left accent border (using theme accent color)
 - This makes code vs. output visually distinguishable at a glance
@@ -139,6 +140,7 @@ Add `.cell-output-stdout pre` styling with:
 - Logo/footer/slide-number positioning
 
 **Usage pattern:** Both `custom.scss` and `academic.scss` will:
+
 1. Define their color variables
 2. `@import '_shared'`
 3. Add any theme-specific overrides
@@ -149,23 +151,26 @@ Add `.cell-output-stdout pre` styling with:
 
 **Color palette:**
 
-| Variable | Hex | Usage |
-|----------|-----|-------|
-| `$primary` | `#1B365D` | Headings (h1, h2), title |
-| `$accent` | `#4A6FA5` | Links, buttons, h4 |
-| `$secondary` | `#6C757D` | h3, borders |
-| `$highlight` | `#E8C547` | Highlights |
-| `$success` | `#2E7D32` | Example callouts |
-| `$warning` | `#E65100` | Warning/caution |
-| `$info` | `#0277BD` | Insight callouts, `.fg` |
-| `$table-header` | `#D6DCE5` | Table headers |
-| `$table-stripe` | `#F5F7FA` | Alternating rows |
+| Variable         | Hex       | Usage                        |
+|------------------|-----------|------------------------------|
+| `$primary`       | `#1B365D` | Headings (h1, h2), title     |
+| `$accent`        | `#4A6FA5` | Links, buttons, h4           |
+| `$secondary`     | `#6C757D` | h3, borders                  |
+| `$highlight`     | `#E8C547` | Highlights                   |
+| `$success`       | `#2E7D32` | Example callouts             |
+| `$warning`       | `#E65100` | Warning/caution              |
+| `$info`          | `#0277BD` | Insight callouts, `.fg`      |
+| `$table-header`  | `#D6DCE5` | Table headers                |
+| `$table-stripe`  | `#F5F7FA` | Alternating rows             |
 
 **Title slide:** Clean white background, no logo, no background image. Users can add their own via YAML front matter overrides.
 
 ### 2.7 Extension Configuration (`_extension.yml`)
 
+> **Implementation note:** The spec below proposed a single `_extension.yml` with both formats. The actual implementation uses two separate extension directories (`_extensions/dtslides/` and `_extensions/dtslides-unm/`), each with its own `_extension.yml`. This was necessary because Quarto's SCSS `@import` resolves relative to the extension directory, and the UNM theme needs its own `images/` directory for logos and backgrounds.
+
 ```yaml
+# As originally proposed (single file):
 title: dtslides
 author: Davood Tofighi
 version: 1.1.0
@@ -210,25 +215,20 @@ html-math-method:
 
 ## 3. Files Summary
 
-| Action | File |
-|--------|------|
-| Create | `_extensions/dtslides/styles/_shared.scss` |
-| Create | `_extensions/dtslides/styles/academic.scss` |
-| Create | `example-academic.qmd` |
-| Rename | `_extensions/unm/` → `_extensions/dtslides/` |
-| Rename | GitHub repo: `Data-Wise/unm-revealjs` → `Data-Wise/dtslides` |
-| Rename | Local directory: `unm-revealjs/` → `dtslides/` |
-| Modify | `_extensions/dtslides/styles/custom.scss` |
-| Modify | `_extensions/dtslides/_extension.yml` |
-| Modify | `template.qmd` |
-| Modify | `example.qmd` |
-| Modify | `example-long.qmd` |
-| Modify | `README.md` (install command, repo references) |
-| Delete | `_extensions/dtslides/styles/unm-revealjs.css` |
-| Delete | `_extensions/dtslides/styles/custom-bk1.scss` |
-| Delete | `unm-revealjs.Rproj` (replace with `dtslides.Rproj`) |
-| Delete | `unm-revealjs.code-workspace` (replace with `dtslides.code-workspace`) |
-| Update | Quarto extension listing submission (repo URL) |
+- **Create:** `_extensions/dtslides/styles/_shared.scss`
+- **Create:** `_extensions/dtslides/styles/academic.scss`
+- **Create:** `example-academic.qmd`
+- **Rename:** `_extensions/unm/` → `_extensions/dtslides/`
+- **Rename:** GitHub repo `Data-Wise/unm-revealjs` → `Data-Wise/dtslides`
+- **Rename:** Local directory `unm-revealjs/` → `dtslides/`
+- **Modify:** `_extensions/dtslides/styles/custom.scss`
+- **Modify:** `_extensions/dtslides/_extension.yml`
+- **Modify:** `template.qmd`, `example.qmd`, `example-long.qmd`
+- **Modify:** `README.md` (install command, repo references)
+- **Delete:** `_extensions/dtslides/styles/unm-revealjs.css`
+- **Delete:** `_extensions/dtslides/styles/custom-bk1.scss`
+- **Delete:** `unm-revealjs.Rproj`, `unm-revealjs.code-workspace`
+- **Update:** Quarto extension listing submission (repo URL)
 
 ---
 
@@ -245,14 +245,14 @@ html-math-method:
 
 ## 5. Design Decisions
 
-| Decision | Choice | Rationale |
-|----------|--------|-----------|
-| Extension name | `dtslides` | Neutral personal brand, supports multiple themes |
-| Repo rename | `Data-Wise/dtslides` | Align repo name with extension; GitHub redirects old URL |
-| Academic palette | Navy/Slate | Professional, classic academic journal aesthetic |
-| Academic title slide | Clean white | No branding; users add their own via YAML |
-| R output styling | Distinct from source | Lighter bg + left accent border for visual clarity |
-| Table hover | Removed | Distracting during presentations |
-| Font Awesome | Kept | Useful for icon shortcodes, minimal overhead |
-| `custom-bk1.scss` | Deleted | Available in git history; reduces confusion |
-| Shared styles | `_shared.scss` partial | Keeps both themes DRY, easy to add future themes |
+| Decision             | Choice                 | Rationale                                                |
+|----------------------|------------------------|----------------------------------------------------------|
+| Extension name       | dtslides               | Neutral personal brand, supports multiple themes         |
+| Repo rename          | Data-Wise/dtslides     | Align repo name with extension; GitHub redirects old URL |
+| Academic palette     | Navy/Slate             | Professional, classic academic journal aesthetic         |
+| Academic title slide | Clean white            | No branding; users add their own via YAML                |
+| R output styling     | Distinct from source   | Lighter bg + left accent border for visual clarity       |
+| Table hover          | Removed                | Distracting during presentations                         |
+| Font Awesome         | Kept                   | Useful for icon shortcodes, minimal overhead             |
+| custom-bk1.scss      | Deleted                | Available in git history; reduces confusion              |
+| Shared styles        | \_shared.scss partial  | Keeps both themes DRY, easy to add future themes         |

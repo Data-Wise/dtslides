@@ -12,3 +12,6 @@ _quarto_internal_scss_error.scss
 *.code-workspace
 # Ignore system files
 .DS_Store
+
+# Claude Code project instructions
+CLAUDE.md

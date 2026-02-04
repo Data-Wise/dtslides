@@ -46,14 +46,6 @@ df <- data.frame(
 df |> knitr::kable()
 ```
 
-## Table Example
-
-| Source    | DF  | SS   | MS   | F    |
-|-----------|-----|------|------|------|
-| Treatment | 2   | 312  | 156  | 52.0 |
-| Error     | 9   | 27   | 3.0  |      |
-| Total     | 11  | 339  |      |      |
-
 # Special Features
 
 ## Emphasis Classes
@@ -78,6 +70,58 @@ How does this compare to the UNM-branded version?
 ::: {.callout-insight}
 The academic theme uses a navy/slate palette for a neutral academic look.
 :::
+
+## Font Sizing Utilities
+
+Apply size classes to a slide or a div:
+
+:::: {.columns}
+::: {.column width="50%"}
+[`.larger` — 1.50em]{.larger}
+
+[`.large` — 1.25em]{.large}
+
+Normal text (1em)
+
+[`.small` — 0.80em]{.small}
+
+[`.smaller` — 0.64em]{.smaller}
+:::
+::: {.column width="50%"}
+Code blocks scale too:
+
+::: {.small}
+```r
+# .small code block
+summary(lm(y ~ x))
+```
+:::
+:::
+::::
+
+## Alignment & Buttons {.small-slide}
+
+### Text alignment
+
+[Left-aligned text]{.left}
+
+[Centered text]{.center}
+
+[Right-aligned text]{.right}
+
+### Buttons and badges
+
+[[Jump to Table Slide]{.button}](#table-example)
+
+Inline labels: [v1.1.0]{.badge} [New]{.badge-secondary}
+
+## Table Example {#table-example}
+
+| Source    | DF  | SS   | MS   | F    |
+|-----------|-----|------|------|------|
+| Treatment | 2   | 312  | 156  | 52.0 |
+| Error     | 9   | 27   | 3.0  |      |
+| Total     | 11  | 339  |      |      |
 
 ## Scrollable Slide Demo {.scrollable}
 

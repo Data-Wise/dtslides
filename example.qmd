@@ -1,18 +1,17 @@
 ---
-title: "UNM reveal.js Template"
-subtitle: "A Presentation Template"
+title: "dtslides UNM Theme"
+subtitle: "Feature Showcase"
 format:
   dtslides-unm-revealjs:
     slide-number: c/t
     chalkboard:
       theme: chalkboard
-    
 author:
   - name: Your Name
     orcid: 0000-0000-0000-0000
     email: alias@email.com
     affiliations: Department of Mathematics & Statistics
-date: last-modified 
+date: last-modified
 ---
 
 ## Example slide
@@ -23,7 +22,7 @@ Here we have some text that may run over several lines of the slide frame,
 depending on how long it is.
 
 - This is a bullet point
-- first item 
+- first item
     - A sub item
 
 ### Lists
@@ -31,7 +30,7 @@ depending on how long it is.
 2. second item
    1. sub item
 
-# Section Slide 
+# Section Slide
 
 ## Additional theme classes {.small-slide}
 
@@ -60,7 +59,7 @@ This is a regular code block in a slide:
 x <- rnorm(100)
 y <- 2 * x + rnorm(100)
 summary(lm(y ~ x))
-``` 
+```
 
 ## Code blocks II
 This is a regular code block with the cell option, `output-location: column`:
@@ -72,10 +71,9 @@ This is a regular code block with the cell option, `output-location: column`:
 x <- rnorm(100)
 y <- 2 * x + rnorm(100)
 summary(lm(y ~ x))
-``` 
+```
 
-
-## Code blocks II {.small-slide}
+## Code blocks III {.small-slide}
 
 This is a code slide with the class `{.small-slide}`, which is useful for code-heavy slides.
 
