@@ -168,10 +168,10 @@ _extensions/
 └── dtslides-unm/       # UNM theme
     └── styles/
         ├── custom.scss      ← color variables (cherry/turquoise)
-        └── _shared.scss     ← synced copy of shared layout
+        └── _shared.scss     ← symlink → dtslides/styles/_shared.scss
 ```
 
-> **Note for contributors:** The two `_shared.scss` files must be kept in sync. After editing one, copy it to the other. See [CLAUDE.md](CLAUDE.md) for details.
+> **Note for contributors:** The UNM theme's `_shared.scss` is a symlink to the academic theme's canonical copy. Edits to `_extensions/dtslides/styles/_shared.scss` automatically apply to both themes.
 
 ## Acknowledgments
 
