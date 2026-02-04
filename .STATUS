@@ -1,0 +1,7 @@
+status: Active
+version: 1.2.0
+progress: 85
+next: Print/PDF optimization (#2) — add @media print rules for clean PDF export
+target: v1.3.0 — quick wins (print, speaker notes)
+branch: dev
+released: 2026-02-04
