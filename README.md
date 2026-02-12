@@ -17,6 +17,16 @@ quarto add Data-Wise/dtslides
 
 This installs both themes under `_extensions/`. Check the directory into version control.
 
+## Updating
+
+To update to the latest version:
+
+```bash
+quarto update Data-Wise/dtslides
+```
+
+This replaces the extension files under `_extensions/` while preserving your `.qmd` files and any custom SCSS overrides.
+
 ## Upgrading from unm-revealjs
 
 If you previously used the `unm-revealjs` extension (v1.0.x), follow these steps:
@@ -69,7 +79,7 @@ format:
 
 ## Features
 
-Both themes share a 700+ line layout partial (`_shared.scss`) providing consistent slide components regardless of which color palette you choose. See [REFERENCE.md](REFERENCE.md) for the full class list with usage examples.
+Both themes share a 760+ line layout partial (`_shared.scss`) providing consistent slide components regardless of which color palette you choose. See [REFERENCE.md](REFERENCE.md) for the full class list with usage examples.
 
 ### Slide types
 
@@ -134,8 +144,8 @@ Code blocks inside these containers scale proportionally.
 | `.v-center`, `.v-top`, `.v-bottom`             | Vertical alignment (grid-based)    |
 | `.button`                                      | Styled link button with play icon  |
 | `.badge`, `.badge-primary`, `.badge-secondary` | Inline label badges                |
-| `.citation`                                    | Smaller, muted citation text       |
-| `.references`                                  | Compact reference list             |
+| `.citation`                                    | Smaller, muted citation text (0.8em) |
+| `.references`                                  | Compact reference list with auto-shrink for 6+/11+ entries |
 
 ### Code blocks
 
@@ -164,7 +174,7 @@ _extensions/
 ├── dtslides/           # Academic theme
 │   └── styles/
 │       ├── academic.scss    ← color variables (navy/slate)
-│       └── _shared.scss     ← shared layout (712 lines)
+│       └── _shared.scss     ← shared layout (765 lines)
 └── dtslides-unm/       # UNM theme
     └── styles/
         ├── custom.scss      ← color variables (cherry/turquoise)
