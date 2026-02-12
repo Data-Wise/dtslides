@@ -1,8 +1,10 @@
 status: Active
-version: 1.2.1
-progress: 85
+version: 1.3.0
+progress: 100
 next: Print/PDF optimization (#2) — add @media print rules for clean PDF export
-target: v1.3.0 — quick wins (print, speaker notes)
+target: v1.4.0 — print support, speaker notes
 branch: dev
 released: 2026-02-12
+site: https://data-wise.github.io/dtslides/
+completed: 2026-02-12 — v1.3.0 released (docs site + live demos, deployed to GitHub Pages, CI workflow)
 completed: 2026-02-12 — v1.2.1 patch (fix citation font compounding, auto-shrink references, citation example slides)
