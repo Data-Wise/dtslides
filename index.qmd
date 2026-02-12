@@ -1,0 +1,78 @@
+---
+title: "dtslides"
+subtitle: "Quarto Reveal.js Themes — Academic & UNM"
+toc: false
+---
+
+A Quarto extension providing two polished reveal.js presentation themes with a shared layout architecture. Both themes include slide types, emphasis classes, callouts, font sizing utilities, styled tables, and citation support — all from a single install.
+
+## Themes
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Academic
+
+Clean, institution-neutral design with a navy/slate palette.
+
+```yaml
+format:
+  dtslides-revealjs:
+    slide-number: c/t
+```
+
+[Live Demo](example-academic.qmd){.btn .btn-primary}
+:::
+
+::: {.column width="50%"}
+### UNM
+
+University of New Mexico branding with a cherry/turquoise palette.
+
+```yaml
+format:
+  dtslides-unm-revealjs:
+    slide-number: c/t
+```
+
+[Live Demo](example.qmd){.btn .btn-primary}
+:::
+
+::::
+
+## Install
+
+```bash
+quarto add Data-Wise/dtslides
+```
+
+This installs both themes under `_extensions/`. Requires Quarto >= 1.6.0.
+
+## Features at a Glance
+
+| Feature | Description |
+|---------|-------------|
+| **Slide types** | `.small-slide`, `.tiny-slide`, `.quote-slide`, `.image-slide`, `.section-slide`, `.slide-code`, `.scrollable` |
+| **Emphasis** | `.alert`, `.fg`, `.bg`, `.highlight`, `.note`, `.warning` |
+| **Callouts** | `.callout-example`, `.callout-question`, `.callout-insight` + standard Quarto callouts |
+| **Font sizing** | `.largest` through `.smallest` — scales code blocks too |
+| **Alignment** | `.left`, `.center`, `.right`, `.v-center`, `.v-top`, `.v-bottom` |
+| **Extras** | `.button`, `.badge`, styled tables, citation support with auto-shrink references |
+
+See the [Reference](reference.qmd) for full documentation and the [Getting Started](getting-started.qmd) guide for installation and customization.
+
+## Architecture
+
+Both themes import a shared `_shared.scss` partial (~765 lines) containing all color-agnostic layout rules. Each theme defines only its color variables, then `@import '_shared'` pulls in the full layout. The UNM theme's `_shared.scss` is a symlink to the academic theme's canonical copy — one source of truth for both themes.
+
+```text
+_extensions/
+├── dtslides/           # Academic theme
+│   └── styles/
+│       ├── academic.scss    ← color variables (navy/slate)
+│       └── _shared.scss     ← shared layout (765 lines)
+└── dtslides-unm/       # UNM theme
+    └── styles/
+        ├── custom.scss      ← color variables (cherry/turquoise)
+        └── _shared.scss     ← symlink → dtslides/styles/_shared.scss
+```

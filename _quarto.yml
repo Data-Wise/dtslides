@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "!template.qmd"
+
+website:
+  title: "dtslides"
+  description: "Quarto Reveal.js Themes — Academic & UNM"
+  repo-url: https://github.com/Data-Wise/dtslides
+  repo-actions: [issue]
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Getting Started
+        href: getting-started.qmd
+      - text: Reference
+        href: reference.qmd
+      - text: Demos
+        menu:
+          - text: Academic Theme
+            href: example-academic.qmd
+          - text: UNM Theme
+            href: example.qmd
+          - text: UNM Extended
+            href: example-long.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
