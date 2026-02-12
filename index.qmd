@@ -4,16 +4,68 @@ subtitle: "Quarto Reveal.js Themes — Academic & UNM"
 toc: false
 ---
 
-A Quarto extension providing two polished reveal.js presentation themes with a shared layout architecture. Both themes include slide types, emphasis classes, callouts, font sizing utilities, styled tables, and citation support — all from a single install.
+```{=html}
+<style>
+.theme-card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.theme-card .palette {
+  display: flex;
+  height: 8px;
+}
+.theme-card .palette span {
+  flex: 1;
+}
+.theme-card .card-body {
+  padding: 1.25rem;
+}
+.theme-card h3 {
+  margin-top: 0;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.feature-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+.feature-item p {
+  color: #6c757d;
+  margin-bottom: 0;
+}
+</style>
+```
+
+Two polished reveal.js presentation themes with shared layout architecture — slide types, emphasis classes, callouts, font utilities, styled tables, and citation support from a single install.
 
 ## Themes
 
-:::: {.columns}
+::::: {.columns}
 
-::: {.column width="50%"}
-### Academic
+:::: {.column width="50%"}
 
-Clean, institution-neutral design with a navy/slate palette.
+```{=html}
+<div class="theme-card">
+  <div class="palette">
+    <span style="background:#1B365D"></span>
+    <span style="background:#4A6FA5"></span>
+    <span style="background:#6C757D"></span>
+    <span style="background:#E8C547"></span>
+    <span style="background:#2E7D32"></span>
+    <span style="background:#0277BD"></span>
+  </div>
+  <div class="card-body">
+    <h3>Academic</h3>
+    <p>Clean, institution-neutral design. Navy/slate palette suited for any department or conference.</p>
+  </div>
+</div>
+```
 
 ```yaml
 format:
@@ -21,13 +73,28 @@ format:
     slide-number: c/t
 ```
 
-[Live Demo](example-academic.qmd){.btn .btn-primary}
-:::
+[Live Demo](example-academic.qmd){.btn .btn-primary .btn-sm}
 
-::: {.column width="50%"}
-### UNM
+::::
 
-University of New Mexico branding with a cherry/turquoise palette.
+:::: {.column width="50%"}
+
+```{=html}
+<div class="theme-card">
+  <div class="palette">
+    <span style="background:#BA0C2F"></span>
+    <span style="background:#007A86"></span>
+    <span style="background:#A7A8AA"></span>
+    <span style="background:#FFC600"></span>
+    <span style="background:#ED8B00"></span>
+    <span style="background:#63666A"></span>
+  </div>
+  <div class="card-body">
+    <h3>UNM</h3>
+    <p>University of New Mexico branding. Cherry/turquoise palette with official logos.</p>
+  </div>
+</div>
+```
 
 ```yaml
 format:
@@ -35,10 +102,12 @@ format:
     slide-number: c/t
 ```
 
-[Live Demo](example.qmd){.btn .btn-primary}
-:::
+[Live Demo](example.qmd){.btn .btn-primary .btn-sm}
+[Extended Demo](example-long.qmd){.btn .btn-outline-primary .btn-sm}
 
 ::::
+
+:::::
 
 ## Install
 
@@ -46,33 +115,56 @@ format:
 quarto add Data-Wise/dtslides
 ```
 
-This installs both themes under `_extensions/`. Requires Quarto >= 1.6.0.
+Installs both themes under `_extensions/`. Requires Quarto >= 1.6.0. See [Getting Started](getting-started.qmd) for usage and customization.
 
-## Features at a Glance
+## Features
 
-| Feature | Description |
-|---------|-------------|
-| **Slide types** | `.small-slide`, `.tiny-slide`, `.quote-slide`, `.image-slide`, `.section-slide`, `.slide-code`, `.scrollable` |
-| **Emphasis** | `.alert`, `.fg`, `.bg`, `.highlight`, `.note`, `.warning` |
-| **Callouts** | `.callout-example`, `.callout-question`, `.callout-insight` + standard Quarto callouts |
-| **Font sizing** | `.largest` through `.smallest` — scales code blocks too |
-| **Alignment** | `.left`, `.center`, `.right`, `.v-center`, `.v-top`, `.v-bottom` |
-| **Extras** | `.button`, `.badge`, styled tables, citation support with auto-shrink references |
-
-See the [Reference](reference.qmd) for full documentation and the [Getting Started](getting-started.qmd) guide for installation and customization.
-
-## Architecture
-
-Both themes import a shared `_shared.scss` partial (~765 lines) containing all color-agnostic layout rules. Each theme defines only its color variables, then `@import '_shared'` pulls in the full layout. The UNM theme's `_shared.scss` is a symlink to the academic theme's canonical copy — one source of truth for both themes.
-
-```text
-_extensions/
-├── dtslides/           # Academic theme
-│   └── styles/
-│       ├── academic.scss    ← color variables (navy/slate)
-│       └── _shared.scss     ← shared layout (765 lines)
-└── dtslides-unm/       # UNM theme
-    └── styles/
-        ├── custom.scss      ← color variables (cherry/turquoise)
-        └── _shared.scss     ← symlink → dtslides/styles/_shared.scss
+```{=html}
+<div class="feature-grid">
+  <div class="feature-item">
+    <h3>Slide Types</h3>
+    <p><code>.small-slide</code> <code>.tiny-slide</code> <code>.quote-slide</code> <code>.image-slide</code> <code>.section-slide</code> <code>.slide-code</code> <code>.scrollable</code></p>
+  </div>
+  <div class="feature-item">
+    <h3>Emphasis &amp; Highlighting</h3>
+    <p><code>.alert</code> <code>.fg</code> <code>.bg</code> <code>.highlight</code> <code>.note</code> <code>.warning</code> — inline spans for drawing attention to key content.</p>
+  </div>
+  <div class="feature-item">
+    <h3>Custom Callouts</h3>
+    <p><code>.callout-example</code> <code>.callout-question</code> <code>.callout-insight</code> plus all standard Quarto callouts, styled to match each theme.</p>
+  </div>
+  <div class="feature-item">
+    <h3>Font Sizing</h3>
+    <p><code>.largest</code> through <code>.smallest</code> — apply to slides or divs. Code blocks inside scale proportionally.</p>
+  </div>
+  <div class="feature-item">
+    <h3>Layout Utilities</h3>
+    <p>Text alignment (<code>.left</code> <code>.center</code> <code>.right</code>), vertical positioning (<code>.v-center</code> <code>.v-top</code> <code>.v-bottom</code>), buttons, badges.</p>
+  </div>
+  <div class="feature-item">
+    <h3>Citations &amp; References</h3>
+    <p>Pandoc citeproc citations styled at <code>0.8em</code>. Reference lists auto-shrink at 6+ and 11+ entries — no JavaScript needed.</p>
+  </div>
+</div>
 ```
+
+See the full [CSS Class Reference](reference.qmd) for usage examples.
+
+## Quick Example
+
+A minimal slide using dtslides features:
+
+````markdown
+## Key Findings {.small-slide}
+
+The treatment effect was [statistically significant]{.alert}
+with [p < 0.001]{.highlight}.
+
+::: {.callout-insight}
+Effect size doubled when controlling for baseline severity.
+:::
+
+[[See Methods]{.button}](#methods)
+````
+
+This renders a compact slide with alert text, a highlighted p-value, a themed callout box, and a navigation button — all without writing any CSS.
