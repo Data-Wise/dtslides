@@ -497,19 +497,38 @@ body {
 // 14. Citations & References
 // ============================================================
 
-.reveal .citation,
-.reveal .citation a:hover {
+.reveal .citation {
   font-size: 0.8em;
   color: lighten($heading-h3-color, 20%);
 }
 
 .reveal .citation a {
-  font-size: 0.8em;
+  font-size: inherit;
   color: $heading-h3-color;
+
+  &:hover {
+    color: lighten($heading-h3-color, 20%);
+  }
 }
 
-.references {
-  font-size: 0.6em;
+// References list: use rem to avoid compounding with Quarto's
+// auto-added .smaller class on the references slide.
+.reveal .references {
+  font-size: 0.6rem;
+  line-height: 1.4;
+
+  .csl-entry {
+    margin-bottom: 0.4em;
+  }
+
+  // Auto-shrink when many references to avoid overflow
+  &:has(.csl-entry:nth-child(6)) {
+    font-size: 0.5rem;
+  }
+
+  &:has(.csl-entry:nth-child(11)) {
+    font-size: 0.4rem;
+  }
 }
 
 // ============================================================

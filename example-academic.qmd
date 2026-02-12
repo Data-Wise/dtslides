@@ -5,6 +5,7 @@ format:
   dtslides-revealjs:
     slide-number: c/t
     chalkboard: true
+bibliography: example-refs.bib
 author:
   - name: Your Name
     orcid: 0000-0000-0000-0000
@@ -410,6 +411,21 @@ This slide uses `{.center}` to vertically center all content.
 Perfect for title cards or key takeaways.
 
 **Key Finding:** The treatment effect was statistically significant ($p < .001$).
+
+# Citations {.section-slide}
+
+## Inline Citations
+
+As @box1976 famously noted, all models are wrong but some are useful.
+
+The bootstrap method [@efron1993] provides a nonparametric approach to inference. Exploratory data analysis [@tukey1977] is a crucial first step. Classical foundations include [@fisher1925] and [@neyman1933].
+
+Modern methods span Bayesian analysis [@gelman2013], random forests [@breiman2001], regularization [@tibshirani1996], causal inference [@pearl2009; @rubin1974], machine learning [@hastie2009], and survival analysis [@cox1972].
+
+## References
+
+::: {#refs}
+:::
 
 # Summary {.section-slide}
 

@@ -1,7 +1,8 @@
 status: Active
-version: 1.2.0
+version: 1.2.1
 progress: 85
 next: Print/PDF optimization (#2) — add @media print rules for clean PDF export
 target: v1.3.0 — quick wins (print, speaker notes)
 branch: dev
-released: 2026-02-04
+released: 2026-02-12
+completed: 2026-02-12 — v1.2.1 patch (fix citation font compounding, auto-shrink references, citation example slides)
