@@ -1,0 +1,569 @@
+[
+  {
+    "objectID": "reference.html",
+    "href": "reference.html",
+    "title": "CSS Class Reference",
+    "section": "",
+    "text": "Quick reference for all user-facing CSS classes. Both themes (Academic and UNM) share these classes."
+  },
+  {
+    "objectID": "reference.html#slide-types",
+    "href": "reference.html#slide-types",
+    "title": "CSS Class Reference",
+    "section": "Slide Types",
+    "text": "Slide Types\nApply as a class on any slide heading: ## Title {.small-slide}\n\n\n\nClass\nEffect\n\n\n\n\n.small-slide\nReduced font size for dense content\n\n\n.tiny-slide\nEven smaller for reference tables\n\n\n.quote-slide\nCentered text with styled blockquote\n\n\n.image-slide\nMinimal chrome, image-focused\n\n\n.section-slide\nLarge centered heading for section dividers\n\n\n.slide-code\nOptimized for code-heavy slides\n\n\n.large-image-slide\nFull-height image display (80vh max)\n\n\n.scrollable\nEnable vertical scrolling on a slide"
+  },
+  {
+    "objectID": "reference.html#emphasis-spans",
+    "href": "reference.html#emphasis-spans",
+    "title": "CSS Class Reference",
+    "section": "Emphasis Spans",
+    "text": "Emphasis Spans\nInline markup: [text]{.alert}\n\n\n\nClass\nEffect\n\n\n\n\n.alert\nBold, alert color, tinted background\n\n\n.fg\nBold, accent foreground color\n\n\n.bg\nWhite text on accent background\n\n\n.highlight\nYellow/gold highlighted text\n\n\n.note\nItalic, tinted background\n\n\n.warning\nBold, warning color, tinted background"
+  },
+  {
+    "objectID": "reference.html#font-sizing",
+    "href": "reference.html#font-sizing",
+    "title": "CSS Class Reference",
+    "section": "Font Sizing",
+    "text": "Font Sizing\nApply to a slide or a div to scale all content inside:\n\n\n\nClass\nText\nCode blocks scale too\n\n\n\n\n.larger\n1.50em\nYes\n\n\n.largest\n1.20em\nYes\n\n\n.large\n1.25em\nYes\n\n\n.small\n0.80em\nYes\n\n\n.smaller\n0.64em\nYes\n\n\n.smallest\n0.51em\nYes"
+  },
+  {
+    "objectID": "reference.html#alignment",
+    "href": "reference.html#alignment",
+    "title": "CSS Class Reference",
+    "section": "Alignment",
+    "text": "Alignment\n\nText (horizontal)\n\n\n\nClass\nEffect\n\n\n\n\n.left\nLeft-aligned\n\n\n.center\nCentered\n\n\n.right\nRight-aligned\n\n\n\n\n\nVertical (grid-based)\n\n\n\nClass\nEffect\n\n\n\n\n.v-center\nCentered\n\n\n.v-top\nTop\n\n\n.v-bottom\nBottom"
+  },
+  {
+    "objectID": "reference.html#buttons-and-badges",
+    "href": "reference.html#buttons-and-badges",
+    "title": "CSS Class Reference",
+    "section": "Buttons and Badges",
+    "text": "Buttons and Badges\n[[Jump to Slide]{.button}](#target-id)\n\nInline labels: [v1.1.0]{.badge} [New]{.badge-secondary}\n\n\n\nClass\nEffect\n\n\n\n\n.button\nAccent-colored link button with icon\n\n\n.badge\nPrimary-colored inline label\n\n\n.badge-primary\nSame as .badge\n\n\n.badge-secondary\nLighter variant"
+  },
+  {
+    "objectID": "reference.html#custom-callouts",
+    "href": "reference.html#custom-callouts",
+    "title": "CSS Class Reference",
+    "section": "Custom Callouts",
+    "text": "Custom Callouts\n::: {.callout-example}\nWorked example content.\n:::\n\n\n\nClass\nTitle\nBorder color\n\n\n\n\n.callout-example\nExample\nGreen (success)\n\n\n.callout-question\nQuestion\nPrimary (navy/cherry)\n\n\n.callout-insight\nInsight\nBlue (info/turquoise)\n\n\n\nStandard Quarto callouts (.callout-note, .callout-warning, .callout-tip, .callout-important, .callout-caution) are also styled."
+  },
+  {
+    "objectID": "reference.html#code-blocks",
+    "href": "reference.html#code-blocks",
+    "title": "CSS Class Reference",
+    "section": "Code Blocks",
+    "text": "Code Blocks\nNo classes needed. Applied automatically:\n\nSource code blocks use Fira Code font with syntax highlighting\nR console output gets a lighter background with an accent-colored left border\nUse output-location: column in chunk options for side-by-side layout"
+  },
+  {
+    "objectID": "reference.html#tables",
+    "href": "reference.html#tables",
+    "title": "CSS Class Reference",
+    "section": "Tables",
+    "text": "Tables\nNo classes needed. Applied automatically:\n\nStriped alternating rows\nUppercase header text\nNo hover effect (keeps presentations clean)"
+  },
+  {
+    "objectID": "reference.html#citations-references",
+    "href": "reference.html#citations-references",
+    "title": "CSS Class Reference",
+    "section": "Citations & References",
+    "text": "Citations & References\nAdd bibliography: refs.bib to your YAML front matter and use Pandoc citations ([@key]).\nInline citations render at 0.8em with a lighter color for visual distinction from body text.\nReference list (#refs div) uses rem-based sizing with automatic shrinking:\n\n\n\nReference count\nFont size\n\n\n\n\n1–5\n0.6rem\n\n\n6–10\n0.5rem (auto-shrink)\n\n\n11+\n0.4rem (auto-shrink)\n\n\n\nAuto-shrink uses CSS :has(.csl-entry:nth-child(n)) — no JavaScript needed."
+  },
+  {
+    "objectID": "reference.html#quick-examples",
+    "href": "reference.html#quick-examples",
+    "title": "CSS Class Reference",
+    "section": "Quick Examples",
+    "text": "Quick Examples\n\nDense content slide\n## Full Regression Output {.small-slide}\n\n- Lots of content here...\n\n\nSection divider\n# Methods {.section-slide}\n\n\nEmphasis in text\nThe result is [statistically significant]{.alert} with\n[p &lt; 0.001]{.highlight}.\n\n\nFont size in a div\n::: {.small}\nThis entire block is smaller, including any code inside it.\n:::\n\n\nCross-reference button\n## Results\n\n[[See Methods]{.button}](#methods-slide)\n\n## Methods {#methods-slide}"
+  },
+  {
+    "objectID": "getting-started.html",
+    "href": "getting-started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "quarto add Data-Wise/dtslides\nThis installs both themes (Academic and UNM) under _extensions/. Check the directory into version control. Requires Quarto &gt;= 1.6.0."
+  },
+  {
+    "objectID": "getting-started.html#installing",
+    "href": "getting-started.html#installing",
+    "title": "Getting Started",
+    "section": "",
+    "text": "quarto add Data-Wise/dtslides\nThis installs both themes (Academic and UNM) under _extensions/. Check the directory into version control. Requires Quarto &gt;= 1.6.0."
+  },
+  {
+    "objectID": "getting-started.html#updating",
+    "href": "getting-started.html#updating",
+    "title": "Getting Started",
+    "section": "Updating",
+    "text": "Updating\nquarto update Data-Wise/dtslides\nThis replaces the extension files under _extensions/ while preserving your .qmd files and any custom SCSS overrides."
+  },
+  {
+    "objectID": "getting-started.html#upgrading-from-unm-revealjs",
+    "href": "getting-started.html#upgrading-from-unm-revealjs",
+    "title": "Getting Started",
+    "section": "Upgrading from unm-revealjs",
+    "text": "Upgrading from unm-revealjs\nIf you previously used the unm-revealjs extension (v1.0.x):\n\nRemove the old extension:\nrm -rf _extensions/unm\nInstall the new extension:\nquarto add Data-Wise/dtslides\nUpdate your YAML front matter:\n# Before\nformat:\n  unm-revealjs:\n    slide-number: c/t\n\n# After\nformat:\n  dtslides-unm-revealjs:\n    slide-number: c/t\n\nAll CSS classes, callouts, and slide options work the same way — only the format string changed."
+  },
+  {
+    "objectID": "getting-started.html#using-the-themes",
+    "href": "getting-started.html#using-the-themes",
+    "title": "Getting Started",
+    "section": "Using the Themes",
+    "text": "Using the Themes\n\nAcademic theme\n---\ntitle: \"My Presentation\"\nformat:\n  dtslides-revealjs:\n    slide-number: c/t\n---\n\n\nUNM theme\n---\ntitle: \"My Presentation\"\nformat:\n  dtslides-unm-revealjs:\n    slide-number: c/t\n---"
+  },
+  {
+    "objectID": "getting-started.html#customizing",
+    "href": "getting-started.html#customizing",
+    "title": "Getting Started",
+    "section": "Customizing Colors and Fonts",
+    "text": "Customizing Colors and Fonts\nQuarto’s YAML-level font options (mainfont, fontsize, monofont) are silently ignored for RevealJS presentations. All typography must be controlled through SCSS.\nTo customize, create a custom.scss file and layer it after the extension theme:\nformat:\n  dtslides-revealjs:\n    theme: [custom.scss]\n    slide-number: c/t\n\nExample custom.scss\n/*-- scss:defaults --*/\n\n// --- Override fonts ---\n$font-family-sans-serif: \"Georgia\", serif;\n$font-family-heading: \"Playfair Display\", serif;\n$font-family-monospace: \"JetBrains Mono\", monospace;\n\n// --- Override sizes ---\n$font-size-root: 36px;\n$presentation-h2-font-size: 1.4em;\n\n// --- Override colors ---\n$primary: #2C3E50;\n$accent: #E74C3C;\n\n// --- Override spacing ---\n$line-height-body: 1.6;\n\n// --- Override code blocks ---\n$code-block-font-size: 0.7em;\n$code-block-bg: #f5f5f5;\nThe extension’s SCSS uses !default on key variables, so your overrides take precedence."
+  },
+  {
+    "objectID": "getting-started.html#css-specificity-notes",
+    "href": "getting-started.html#css-specificity-notes",
+    "title": "Getting Started",
+    "section": "CSS Specificity Notes",
+    "text": "CSS Specificity Notes\nWhen writing custom CSS rules for RevealJS, use the .reveal prefix to match the framework’s specificity:\n/* Headings — bare h2 loses to RevealJS defaults */\n.reveal h2 { color: #2C3E50; }\n\n/* Quarto callouts — need div.callout to match specificity */\n.reveal div.callout-note { border-color: #007bff; }\n\n/* List items */\n.reveal .slide ul li { margin-bottom: 0.5em; }"
+  },
+  {
+    "objectID": "example-long.html#about-this-showcase",
+    "href": "example-long.html#about-this-showcase",
+    "title": "dtslides Feature Showcase",
+    "section": "About This Showcase",
+    "text": "About This Showcase\nThis presentation demonstrates the capabilities of the dtslides extension for Quarto RevealJS.\nIt covers:\n\nMarkdown & Typography\nLayouts & Columns\nCode & Syntax Highlighting\nMath & Equations\nCustom Theme Classes\nInteractive Elements"
+  },
+  {
+    "objectID": "example-long.html#text-formatting",
+    "href": "example-long.html#text-formatting",
+    "title": "dtslides Feature Showcase",
+    "section": "Text Formatting",
+    "text": "Text Formatting\nWe support standard Markdown formatting:\n\nBold text for emphasis\nItalic text for nuance\nStrikethrough for deletions\nInline code for technical terms\nLinks to resources\n\n\n“Blockquotes are useful for citing sources or highlighting key concepts.”"
+  },
+  {
+    "objectID": "example-long.html#lists-fragments",
+    "href": "example-long.html#lists-fragments",
+    "title": "dtslides Feature Showcase",
+    "section": "Lists & Fragments",
+    "text": "Lists & Fragments\nLists can be revealed sequentially using fragments:\n\n\nFirst item (appears first)\n\n\n\n\nSecond item (appears second)\n\n\n\n\nThird item (appears last)\n\nNested item A\nNested item B"
+  },
+  {
+    "objectID": "example-long.html#slide-sizes",
+    "href": "example-long.html#slide-sizes",
+    "title": "dtslides Feature Showcase",
+    "section": "Slide Sizes",
+    "text": "Slide Sizes\nThis slide uses the .small-slide class.\n\nContent is smaller (80% size).\nUseful for slides with slightly more content.\nStill maintains readability."
+  },
+  {
+    "objectID": "example-long.html#tiny-slide",
+    "href": "example-long.html#tiny-slide",
+    "title": "dtslides Feature Showcase",
+    "section": "Tiny Slide",
+    "text": "Tiny Slide\nThis slide uses the .tiny-slide class (40% size).\n\nThis is useful for very dense information.\nReference lists.\nDetailed code blocks that need to fit on one screen.\nAppendix material.\nItem 5\nItem 6\nItem 7\nItem 8\nItem 9\nItem 10"
+  },
+  {
+    "objectID": "example-long.html#multiple-columns",
+    "href": "example-long.html#multiple-columns",
+    "title": "dtslides Feature Showcase",
+    "section": "Multiple Columns",
+    "text": "Multiple Columns\n\n\nLeft Column\nThis column takes up 50% of the slide width.\n\nPoint A\nPoint B\n\n\nRight Column\nThis column also takes up 50%.\n\nPoint C\nPoint D"
+  },
+  {
+    "objectID": "example-long.html#column-layouts-with-images",
+    "href": "example-long.html#column-layouts-with-images",
+    "title": "dtslides Feature Showcase",
+    "section": "Column Layouts with Images",
+    "text": "Column Layouts with Images\n\n\nText & Context\nYou can place text on one side to explain a visual element.\n\nExplanation 1\nExplanation 2\n\n\n\n\n\nPlaceholder Image"
+  },
+  {
+    "objectID": "example-long.html#tabsets",
+    "href": "example-long.html#tabsets",
+    "title": "dtslides Feature Showcase",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nR CodePython CodeAnalysis\n\n\nlibrary(ggplot2)\nggplot(mtcars, aes(mpg, hp)) + geom_point()\n\n\nimport matplotlib.pyplot as plt\nplt.scatter(mtcars[\"mpg\"], mtcars[\"hp\"])\nplt.show()\n\n\nTabsets allow you to organize content without cluttering the slide. Great for switching between languages or results."
+  },
+  {
+    "objectID": "example-long.html#r-code-execution",
+    "href": "example-long.html#r-code-execution",
+    "title": "dtslides Feature Showcase",
+    "section": "R Code Execution",
+    "text": "R Code Execution\nStandard R code blocks with output:\n\nlibrary(ggplot2)\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point(size = 3) +\n  theme_minimal() +\n  labs(title = \"Motor Trend Car Road Tests\")"
+  },
+  {
+    "objectID": "example-long.html#side-by-side-code-output",
+    "href": "example-long.html#side-by-side-code-output",
+    "title": "dtslides Feature Showcase",
+    "section": "Side-by-Side Code & Output",
+    "text": "Side-by-Side Code & Output\nUsing output-location: column:\n\n\n# Generate data\nx &lt;- rnorm(100)\ny &lt;- 2 * x + rnorm(100)\n\n# Fit model\nmodel &lt;- lm(y ~ x)\n\n# Plot\npar(mar = c(4, 4, 1, 1))\nplot(x, y, pch = 19, col = \"steelblue\")\nabline(model, lwd = 2, col = \"darkred\")"
+  },
+  {
+    "objectID": "example-long.html#latex-support",
+    "href": "example-long.html#latex-support",
+    "title": "dtslides Feature Showcase",
+    "section": "LaTeX Support",
+    "text": "LaTeX Support\nMathematical equations are rendered beautifully using MathJax.\nInline math: \\(E = mc^2\\)\nDisplay math:\n\\[\n\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0\n\\]\nAligned equations:\n\\[\n\\begin{align}\nf(x) &= a x^2 + b x + c \\\\\nf'(x) &= 2 a x + b\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "example-long.html#custom-classes",
+    "href": "example-long.html#custom-classes",
+    "title": "dtslides Feature Showcase",
+    "section": "Custom Classes",
+    "text": "Custom Classes\nThe dtslides theme includes special utility classes:\n\nAlert text for emphasis (.alert)\nCustom Foreground (.fg)\nHighlighted text (.highlight)\nNote style (.note)\nWarning style (.warning)"
+  },
+  {
+    "objectID": "example-long.html#standard-callouts",
+    "href": "example-long.html#standard-callouts",
+    "title": "dtslides Feature Showcase",
+    "section": "Standard Callouts",
+    "text": "Standard Callouts\n\n\n\n\n\n\nNote\n\n\nNote callouts are great for non-critical information.\n\n\n\n\n\n\n\n\n\nImportant\n\n\nImportant callouts highlight critical warnings.\n\n\n\n\n\n\n\n\n\nTip\n\n\nTip callouts suggest best practices."
+  },
+  {
+    "objectID": "example-long.html#theme-specific-callouts",
+    "href": "example-long.html#theme-specific-callouts",
+    "title": "dtslides Feature Showcase",
+    "section": "Theme-Specific Callouts",
+    "text": "Theme-Specific Callouts\nThe theme provides custom semantic callouts:\n\nExample: A worked problem or specific case study.\n\n\nQuestion: A prompt for audience reflection or discussion.\n\n\nInsight: A deeper observation or key takeaway."
+  },
+  {
+    "objectID": "example-long.html#mermaid-diagrams",
+    "href": "example-long.html#mermaid-diagrams",
+    "title": "dtslides Feature Showcase",
+    "section": "Mermaid Diagrams",
+    "text": "Mermaid Diagrams\n\nflowchart LR\n  A[Start] --&gt; B{Decision}\n  B -- Yes --&gt; C[OK]\n  B -- No --&gt; D[Retry]\n  D --&gt; B\n\n\n\n\nflowchart LR\n  A[Start] --&gt; B{Decision}\n  B -- Yes --&gt; C[OK]\n  B -- No --&gt; D[Retry]\n  D --&gt; B"
+  },
+  {
+    "objectID": "example-long.html#graphviz",
+    "href": "example-long.html#graphviz",
+    "title": "dtslides Feature Showcase",
+    "section": "Graphviz",
+    "text": "Graphviz\n\ndigraph G {\n  rankdir=LR;\n  start -&gt; a0 -&gt; a1 -&gt; end;\n}\n\n\n\n\n\n\nG\n\n\n\nstart\n\nstart\n\n\n\na0\n\na0\n\n\n\nstart-&gt;a0\n\n\n\n\n\na1\n\na1\n\n\n\na0-&gt;a1\n\n\n\n\n\nend\n\nend\n\n\n\na1-&gt;end"
+  },
+  {
+    "objectID": "example-long.html#summary",
+    "href": "example-long.html#summary",
+    "title": "dtslides Feature Showcase",
+    "section": "Summary",
+    "text": "Summary\nThis template provides a robust foundation for academic and professional presentations.\nKey features: 1. Clean, readable typography. 2. Flexible layout options. 3. Rich code and math support. 4. Customizable thematic elements."
+  },
+  {
+    "objectID": "example-long.html#thank-you",
+    "href": "example-long.html#thank-you",
+    "title": "dtslides Feature Showcase",
+    "section": "Thank You",
+    "text": "Thank You\nQuestions?\ncontact@email.com"
+  },
+  {
+    "objectID": "example-academic.html#overview",
+    "href": "example-academic.html#overview",
+    "title": "Introduction to Statistical Methods",
+    "section": "Overview",
+    "text": "Overview\nThis presentation demonstrates the academic theme — a clean, neutral design suitable for any institution.\n\nNavy/slate color palette\nNo institutional branding\nSame feature set as the UNM theme"
+  },
+  {
+    "objectID": "example-academic.html#text-formatting",
+    "href": "example-academic.html#text-formatting",
+    "title": "Introduction to Statistical Methods",
+    "section": "Text Formatting",
+    "text": "Text Formatting\nStandard Markdown formatting works seamlessly:\n\nBold text for emphasis\nItalic text for nuance\nStrikethrough for deletions\nInline code for technical terms like lm() or ggplot2\nLinks to resources\n\n\n“All models are wrong, but some are useful.” — George Box"
+  },
+  {
+    "objectID": "example-academic.html#lists-fragments",
+    "href": "example-academic.html#lists-fragments",
+    "title": "Introduction to Statistical Methods",
+    "section": "Lists & Fragments",
+    "text": "Lists & Fragments\nUse ::: {.fragment} to reveal items one at a time:\n\n\nState the null hypothesis \\(H_0\\)\n\n\n\n\nChoose a significance level \\(\\alpha\\)\n\n\n\n\nCompute the test statistic\n\n\n\n\nCompare to critical value or compute \\(p\\)-value"
+  },
+  {
+    "objectID": "example-academic.html#incremental-lists",
+    "href": "example-academic.html#incremental-lists",
+    "title": "Introduction to Statistical Methods",
+    "section": "Incremental Lists",
+    "text": "Incremental Lists\nAdd {.incremental} to auto-fragment every bullet:\n\nAssumption checking\nModel fitting\nDiagnostics\nInterpretation"
+  },
+  {
+    "objectID": "example-academic.html#font-sizing-utilities",
+    "href": "example-academic.html#font-sizing-utilities",
+    "title": "Introduction to Statistical Methods",
+    "section": "Font Sizing Utilities",
+    "text": "Font Sizing Utilities\nApply size classes to spans or divs:\n\n\n\n.largest (1.20em)\n.larger (1.50em)\n.large (1.25em)\nNormal text (1em)\n.small (0.80em)\n.smaller (0.64em)\n.smallest (0.512em)\n\n\nCode blocks scale too:\n\n# .small code block\nsummary(lm(y ~ x))"
+  },
+  {
+    "objectID": "example-academic.html#small-slide",
+    "href": "example-academic.html#small-slide",
+    "title": "Introduction to Statistical Methods",
+    "section": "Small Slide",
+    "text": "Small Slide\nUse {.small-slide} for slides with more content (80% font size).\n\nUseful when you need to fit slightly more text\nKeeps readability while increasing density\nGreat for summary or review slides"
+  },
+  {
+    "objectID": "example-academic.html#tiny-slide",
+    "href": "example-academic.html#tiny-slide",
+    "title": "Introduction to Statistical Methods",
+    "section": "Tiny Slide",
+    "text": "Tiny Slide\nUse {.tiny-slide} for very dense information (40% font size).\n\nReference lists\nDetailed code output\nAppendix material\nSupplementary tables\nMethod details\nFull regression output\nAssumption checks\nSensitivity analyses\nAdditional citations\nTechnical notes"
+  },
+  {
+    "objectID": "example-academic.html#quote-slide",
+    "href": "example-academic.html#quote-slide",
+    "title": "Introduction to Statistical Methods",
+    "section": "Quote Slide",
+    "text": "Quote Slide\n\n“The best thing about being a statistician is that you get to play in everyone’s backyard.”\n\n— John Tukey"
+  },
+  {
+    "objectID": "example-academic.html#scrollable-slide",
+    "href": "example-academic.html#scrollable-slide",
+    "title": "Introduction to Statistical Methods",
+    "section": "Scrollable Slide",
+    "text": "Scrollable Slide\nAdd {.scrollable} to the slide title for long content.\n\nset.seed(42)\nn &lt;- 200\nx1 &lt;- rnorm(n)\nx2 &lt;- rnorm(n)\nx3 &lt;- rnorm(n)\ny &lt;- 3 + 2*x1 - 1.5*x2 + 0.8*x3 + rnorm(n)\nfit &lt;- lm(y ~ x1 + x2 + x3)\nsummary(fit)\n\n\nCall:\nlm(formula = y ~ x1 + x2 + x3)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.93441 -0.62144  0.03289  0.72861  2.25916 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  2.86990    0.06621   43.35   &lt;2e-16 ***\nx1           1.94150    0.06826   28.44   &lt;2e-16 ***\nx2          -1.49839    0.07029  -21.32   &lt;2e-16 ***\nx3           0.79215    0.06384   12.41   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.9344 on 196 degrees of freedom\nMultiple R-squared:  0.8813,    Adjusted R-squared:  0.8795 \nF-statistic: 485.3 on 3 and 196 DF,  p-value: &lt; 2.2e-16\n\nconfint(fit)\n\n                 2.5 %     97.5 %\n(Intercept)  2.7393263  3.0004766\nx1           1.8068779  2.0761290\nx2          -1.6370243 -1.3597633\nx3           0.6662528  0.9180429"
+  },
+  {
+    "objectID": "example-academic.html#two-columns",
+    "href": "example-academic.html#two-columns",
+    "title": "Introduction to Statistical Methods",
+    "section": "Two Columns",
+    "text": "Two Columns\n\n\nLeft Column\n\nRegression assumptions\nLinearity\nNormality of residuals\nHomoscedasticity\n\n\nRight Column\n\nDiagnostic tools\nResidual plots\nQ-Q plots\nCook’s distance"
+  },
+  {
+    "objectID": "example-academic.html#columns-with-code-output",
+    "href": "example-academic.html#columns-with-code-output",
+    "title": "Introduction to Statistical Methods",
+    "section": "Columns with Code & Output",
+    "text": "Columns with Code & Output\n\n\nThe Model\nWe fit a simple linear regression:\n\\[\\hat{y} = b_0 + b_1 x\\]\nwhere \\(b_0\\) and \\(b_1\\) are estimated via OLS.\n\n\nset.seed(42)\nx &lt;- rnorm(50)\ny &lt;- 2 + 3*x + rnorm(50)\nplot(x, y, pch = 19,\n     col = \"#4A6FA5\")\nabline(lm(y ~ x),\n       col = \"#1B365D\", lwd = 2)"
+  },
+  {
+    "objectID": "example-academic.html#tabsets",
+    "href": "example-academic.html#tabsets",
+    "title": "Introduction to Statistical Methods",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nSummary StatsCorrelationModel\n\n\n\nsummary(mtcars[, c(\"mpg\", \"hp\", \"wt\")])\n\n      mpg              hp              wt       \n Min.   :10.40   Min.   : 52.0   Min.   :1.513  \n 1st Qu.:15.43   1st Qu.: 96.5   1st Qu.:2.581  \n Median :19.20   Median :123.0   Median :3.325  \n Mean   :20.09   Mean   :146.7   Mean   :3.217  \n 3rd Qu.:22.80   3rd Qu.:180.0   3rd Qu.:3.610  \n Max.   :33.90   Max.   :335.0   Max.   :5.424  \n\n\n\n\n\nround(cor(mtcars[, c(\"mpg\", \"hp\", \"wt\")]), 3)\n\n       mpg     hp     wt\nmpg  1.000 -0.776 -0.868\nhp  -0.776  1.000  0.659\nwt  -0.868  0.659  1.000\n\n\n\n\n\ncoef(summary(lm(mpg ~ hp + wt, data = mtcars)))\n\n               Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 37.22727012 1.59878754 23.284689 2.565459e-20\nhp          -0.03177295 0.00902971 -3.518712 1.451229e-03\nwt          -3.87783074 0.63273349 -6.128695 1.119647e-06"
+  },
+  {
+    "objectID": "example-academic.html#r-code-example",
+    "href": "example-academic.html#r-code-example",
+    "title": "Introduction to Statistical Methods",
+    "section": "R Code Example",
+    "text": "R Code Example\nStandard R code blocks:\n```{r}\n#| echo: true\nset.seed(42)\nx &lt;- rnorm(100)\n...\n```\n\nset.seed(42)\nx &lt;- rnorm(100)\ny &lt;- 2 * x + rnorm(100, sd = 0.5)\nsummary(lm(y ~ x))\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.94421 -0.25332  0.00612  0.27053  1.43120 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.04418    0.04544  -0.972    0.333    \nx            2.01358    0.04383  45.938   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4542 on 98 degrees of freedom\nMultiple R-squared:  0.9556,    Adjusted R-squared:  0.9552 \nF-statistic:  2110 on 1 and 98 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "example-academic.html#code-with-column-output",
+    "href": "example-academic.html#code-with-column-output",
+    "title": "Introduction to Statistical Methods",
+    "section": "Code with Column Output",
+    "text": "Code with Column Output\nUse #| output-location: column to place output side-by-side.\n\n\ndf &lt;- data.frame(\n  Treatment = rep(c(\"A\", \"B\", \"C\"), each = 4),\n  Response = c(23, 25, 21, 24,\n               30, 32, 28, 31,\n               18, 20, 17, 19)\n)\ndf |&gt; knitr::kable()\n\n\n\n\n\nTreatment\nResponse\n\n\n\n\nA\n23\n\n\nA\n25\n\n\nA\n21\n\n\nA\n24\n\n\nB\n30\n\n\nB\n32\n\n\nB\n28\n\n\nB\n31\n\n\nC\n18\n\n\nC\n20\n\n\nC\n17\n\n\nC\n19"
+  },
+  {
+    "objectID": "example-academic.html#r-plot-output",
+    "href": "example-academic.html#r-plot-output",
+    "title": "Introduction to Statistical Methods",
+    "section": "R Plot Output",
+    "text": "R Plot Output\n\nlibrary(ggplot2)\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point(size = 3) +\n  theme_minimal() +\n  labs(title = \"Motor Trend Car Road Tests\",\n       x = \"Weight (1000 lbs)\", y = \"Miles per Gallon\",\n       color = \"Cylinders\")"
+  },
+  {
+    "objectID": "example-academic.html#code-with-filename",
+    "href": "example-academic.html#code-with-filename",
+    "title": "Introduction to Statistical Methods",
+    "section": "Code with Filename",
+    "text": "Code with Filename\nUse filename to label code blocks:\n\n\n\nanalysis.R\n\n# Load and prepare data\nlibrary(dplyr)\ndata &lt;- read.csv(\"experiment.csv\") |&gt;\n  filter(!is.na(response)) |&gt;\n  mutate(group = factor(group))\n\n# Fit ANOVA\nmodel &lt;- aov(response ~ group, data = data)\nsummary(model)\nTukeyHSD(model)"
+  },
+  {
+    "objectID": "example-academic.html#latex-support",
+    "href": "example-academic.html#latex-support",
+    "title": "Introduction to Statistical Methods",
+    "section": "LaTeX Support",
+    "text": "LaTeX Support\nInline math: The sample mean is \\(\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i\\).\nDisplay math:\n\\[\nf(x \\mid \\mu, \\sigma^2) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}} \\exp\\left(-\\frac{(x - \\mu)^2}{2\\sigma^2}\\right)\n\\]\nAligned equations:\n\\[\n\\begin{align}\n\\hat{\\beta} &= (X'X)^{-1}X'y \\\\\n\\text{Var}(\\hat{\\beta}) &= \\sigma^2 (X'X)^{-1} \\\\\n\\hat{\\sigma}^2 &= \\frac{e'e}{n - p}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "example-academic.html#emphasis-classes",
+    "href": "example-academic.html#emphasis-classes",
+    "title": "Introduction to Statistical Methods",
+    "section": "Emphasis Classes",
+    "text": "Emphasis Classes\nAdd emphasis using spans [text]{.class}:\n\n\n\nSyntax\nResult\nUse Case\n\n\n\n\n[text]{.alert}\nimportant note\nKey warnings\n\n\n[text]{.fg}\nhighlighted\nAccent emphasis\n\n\n[text]{.bg}\nbackground\nStrong emphasis\n\n\n[text]{.highlight}\nkey finding\nHighlights\n\n\n[text]{.note}\nside note\nAsides\n\n\n[text]{.warning}\ncaution\nWarnings"
+  },
+  {
+    "objectID": "example-academic.html#standard-quarto-callouts",
+    "href": "example-academic.html#standard-quarto-callouts",
+    "title": "Introduction to Statistical Methods",
+    "section": "Standard Quarto Callouts",
+    "text": "Standard Quarto Callouts\n\n\n\n\n\n\nNote\n\n\nNote callouts are great for supplementary information.\n\n\n\n\n\n\n\n\n\nImportant\n\n\nImportant callouts highlight critical warnings.\n\n\n\n\n\n\n\n\n\nTip\n\n\nTip callouts suggest best practices and shortcuts."
+  },
+  {
+    "objectID": "example-academic.html#theme-specific-callouts",
+    "href": "example-academic.html#theme-specific-callouts",
+    "title": "Introduction to Statistical Methods",
+    "section": "Theme-Specific Callouts",
+    "text": "Theme-Specific Callouts\nUse divs ::: {.callout-type} for custom boxes:\n\nConsider a study with \\(n = 30\\) subjects. The sample mean is \\(\\bar{x} = 5.2\\) with \\(s = 1.8\\). A 95% CI for \\(\\mu\\) is \\((4.53, 5.87)\\).\n\n\nHow does increasing the sample size affect the width of the confidence interval?\n\n\nThe CI width decreases at rate \\(1/\\sqrt{n}\\), so quadrupling the sample size halves the interval width."
+  },
+  {
+    "objectID": "example-academic.html#table-example",
+    "href": "example-academic.html#table-example",
+    "title": "Introduction to Statistical Methods",
+    "section": "Table Example",
+    "text": "Table Example\nStandard Markdown tables with automatic striped rows:\n\n\n\nSource\nDF\nSS\nMS\nF\n\\(p\\)-value\n\n\n\n\nTreatment\n2\n312.0\n156.0\n52.00\n&lt; .001\n\n\nError\n9\n27.0\n3.0\n\n\n\n\nTotal\n11\n339.0"
+  },
+  {
+    "objectID": "example-academic.html#alignment-buttons",
+    "href": "example-academic.html#alignment-buttons",
+    "title": "Introduction to Statistical Methods",
+    "section": "Alignment & Buttons",
+    "text": "Alignment & Buttons\nText alignment\n\n{.left} → Left-aligned text\n{.center} → Centered text\n{.right} → Right-aligned text\n\nButtons and badges\n\nButton: [[Text]{.button}](#link)\n\nJump to Table Slide\n\nBadges: [v1.1]{.badge}\n\nv1.1.0 New"
+  },
+  {
+    "objectID": "example-academic.html#mermaid-diagrams",
+    "href": "example-academic.html#mermaid-diagrams",
+    "title": "Introduction to Statistical Methods",
+    "section": "Mermaid Diagrams",
+    "text": "Mermaid Diagrams\n\nflowchart LR\n  A[Collect Data] --&gt; B{Assumptions Met?}\n  B -- Yes --&gt; C[Fit Model]\n  B -- No --&gt; D[Transform Data]\n  D --&gt; B\n  C --&gt; E[Interpret Results]\n\n\n\n\nflowchart LR\n  A[Collect Data] --&gt; B{Assumptions Met?}\n  B -- Yes --&gt; C[Fit Model]\n  B -- No --&gt; D[Transform Data]\n  D --&gt; B\n  C --&gt; E[Interpret Results]"
+  },
+  {
+    "objectID": "example-academic.html#graphviz-diagrams",
+    "href": "example-academic.html#graphviz-diagrams",
+    "title": "Introduction to Statistical Methods",
+    "section": "Graphviz Diagrams",
+    "text": "Graphviz Diagrams\n\ndigraph G {\n  rankdir=LR;\n  node [shape=box, style=filled, fillcolor=\"#F5F7FA\", color=\"#1B365D\"];\n  edge [color=\"#4A6FA5\"];\n  \"Raw Data\" -&gt; \"Clean\" -&gt; \"Explore\" -&gt; \"Model\" -&gt; \"Report\";\n}\n\n\n\n\n\n\nG\n\n\n\nRaw Data\n\nRaw Data\n\n\n\nClean\n\nClean\n\n\n\nRaw Data-&gt;Clean\n\n\n\n\n\nExplore\n\nExplore\n\n\n\nClean-&gt;Explore\n\n\n\n\n\nModel\n\nModel\n\n\n\nExplore-&gt;Model\n\n\n\n\n\nReport\n\nReport\n\n\n\nModel-&gt;Report"
+  },
+  {
+    "objectID": "example-academic.html#centered-content",
+    "href": "example-academic.html#centered-content",
+    "title": "Introduction to Statistical Methods",
+    "section": "Centered Content",
+    "text": "Centered Content\nThis slide uses {.center} to vertically center all content.\nPerfect for title cards or key takeaways.\nKey Finding: The treatment effect was statistically significant (\\(p &lt; .001\\))."
+  },
+  {
+    "objectID": "example-academic.html#inline-citations",
+    "href": "example-academic.html#inline-citations",
+    "title": "Introduction to Statistical Methods",
+    "section": "Inline Citations",
+    "text": "Inline Citations\nAs Box (1976) famously noted, all models are wrong but some are useful.\nThe bootstrap method (Efron and Tibshirani 1993) provides a nonparametric approach to inference. Exploratory data analysis (Tukey 1977) is a crucial first step. Classical foundations include (Fisher 1925) and (Neyman and Pearson 1933).\nModern methods span Bayesian analysis (Gelman et al. 2013), random forests (Breiman 2001), regularization (Tibshirani 1996), causal inference (Pearl 2009; Rubin 1974), machine learning (Hastie, Tibshirani, and Friedman 2009), and survival analysis (Cox 1972)."
+  },
+  {
+    "objectID": "example-academic.html#references",
+    "href": "example-academic.html#references",
+    "title": "Introduction to Statistical Methods",
+    "section": "References",
+    "text": "References\n\n\nBox, George E. P. 1976. “Science and Statistics.” Journal of the American Statistical Association 71 (356): 791–99.\n\n\nBreiman, Leo. 2001. “Random Forests.” Machine Learning 45: 5–32.\n\n\nCox, David R. 1972. “Regression Models and Life-Tables.” Journal of the Royal Statistical Society B 34 (2): 187–220.\n\n\nEfron, Bradley, and Robert J. Tibshirani. 1993. An Introduction to the Bootstrap. Chapman; Hall.\n\n\nFisher, Ronald A. 1925. “Statistical Methods for Research Workers.” Edinburgh: Oliver and Boyd.\n\n\nGelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. Bayesian Data Analysis. 3rd ed. Chapman; Hall/CRC.\n\n\nHastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. The Elements of Statistical Learning. 2nd ed. Springer.\n\n\nNeyman, Jerzy, and Egon S. Pearson. 1933. “On the Problem of the Most Efficient Tests of Statistical Hypotheses.” Philosophical Transactions of the Royal Society A 231: 289–337.\n\n\nPearl, Judea. 2009. “Causality: Models, Reasoning, and Inference.” Cambridge University Press.\n\n\nRubin, Donald B. 1974. “Estimating Causal Effects of Treatments in Randomized and Nonrandomized Studies.” Journal of Educational Psychology 66 (5): 688–701.\n\n\nTibshirani, Robert. 1996. “Regression Shrinkage and Selection via the Lasso.” Journal of the Royal Statistical Society B 58 (1): 267–88.\n\n\nTukey, John W. 1977. “Exploratory Data Analysis.” Reading, MA: Addison-Wesley."
+  },
+  {
+    "objectID": "example-academic.html#what-we-covered",
+    "href": "example-academic.html#what-we-covered",
+    "title": "Introduction to Statistical Methods",
+    "section": "What We Covered",
+    "text": "What We Covered\n\n\nTypography\n\nText formatting & lists\nFragments & incremental\nFont sizing utilities\n\nLayouts\n\nMulti-column layouts\nTabsets (panel-tabset)\nSlide types (small, tiny, quote)\n\n\nCode & Math\n\nR code execution & plots\nColumn output\nLaTeX equations\n\nTheme Features\n\nEmphasis classes (6 types)\nCallouts (standard + custom)\nButtons, badges, alignment\nMermaid & Graphviz diagrams"
+  },
+  {
+    "objectID": "example-academic.html#thank-you",
+    "href": "example-academic.html#thank-you",
+    "title": "Introduction to Statistical Methods",
+    "section": "Thank You",
+    "text": "Thank You\nQuestions?\nalias@email.com"
+  },
+  {
+    "objectID": "example.html#example-slide",
+    "href": "example.html#example-slide",
+    "title": "dtslides UNM Theme",
+    "section": "Example slide",
+    "text": "Example slide\nThis is Heading 3\nHere we have some text that may run over several lines of the slide frame, depending on how long it is.\n\nThis is a bullet point\nfirst item\n\nA sub item\n\n\nLists\n\nfirst item\nsecond item\n\nsub item"
+  },
+  {
+    "objectID": "example.html#additional-theme-classes",
+    "href": "example.html#additional-theme-classes",
+    "title": "dtslides UNM Theme",
+    "section": "Additional theme classes",
+    "text": "Additional theme classes\nSpecial classes for emphasis\n\n.alert class for default emphasis, e.g. [important note]{.alert} ==&gt; important note.\n.fg class for custom color, e.g. important note.\n.bg class for custom background, e.g. important note.\n.highlight class for highlighting, e.g. important note.\n.note class for notes, e.g. important note.\n.warning class for warnings, e.g. warning note.\n\nCross-references\n\n.button class provides a Beamer-like button, e.g.\n\n[[Call-out Section]{.button}](#callout-sec) Call-out Section"
+  },
+  {
+    "objectID": "example.html#code-blocks-i",
+    "href": "example.html#code-blocks-i",
+    "title": "dtslides UNM Theme",
+    "section": "Code blocks I",
+    "text": "Code blocks I\nThis is a regular code block in a slide:\n\n# This is an R code block\nx &lt;- rnorm(100)\ny &lt;- 2 * x + rnorm(100)\nsummary(lm(y ~ x))\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.85358 -0.72693 -0.03036  0.73559  2.67368 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.19465    0.10378  -1.876   0.0637 .  \nx            1.99678    0.09593  20.814   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.037 on 98 degrees of freedom\nMultiple R-squared:  0.8155,    Adjusted R-squared:  0.8136 \nF-statistic: 433.2 on 1 and 98 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "example.html#code-blocks-ii",
+    "href": "example.html#code-blocks-ii",
+    "title": "dtslides UNM Theme",
+    "section": "Code blocks II",
+    "text": "Code blocks II\nThis is a regular code block with the cell option, output-location: column:\n\n\n# This is an R code block\nx &lt;- rnorm(100)\ny &lt;- 2 * x + rnorm(100)\nsummary(lm(y ~ x))\n\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-2.0423 -0.6618 -0.1700  0.5641  2.8984 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  0.07741    0.09200   0.841    0.402    \nx            1.99232    0.10044  19.837   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.918 on 98 degrees of freedom\nMultiple R-squared:  0.8006,    Adjusted R-squared:  0.7986 \nF-statistic: 393.5 on 1 and 98 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "example.html#code-blocks-iii",
+    "href": "example.html#code-blocks-iii",
+    "title": "dtslides UNM Theme",
+    "section": "Code blocks III",
+    "text": "Code blocks III\nThis is a code slide with the class {.small-slide}, which is useful for code-heavy slides.\n\nN &lt;- 12 # Number of experimental units, Step 1\n# Define experimental units and treatments\nexperimental_units &lt;- 1:N ## 10 experimental units\ntreatments &lt;- c(\"A\", \"B\", \"C\") ## 3 treatments, Step 2\n\n# Repeat treatments to match the number of units. The code covers both balanced and unbalanced designs.\ntreatments &lt;- rep(treatments, length.out = N) ## Step 3\n\n# For a balanced design, we can also use:\n# treatments &lt;- rep(treatments, each = N/length(treatments))\n\n# Shuffle (randomize) treatments randomly to assign to units, Step 4\nset.seed(123) ## For reproducibility\nrandomized_treatments &lt;- sample(treatments)\n\n# Create a data frame with randomized assignments\nrandomization_crd &lt;- data.frame(Unit = experimental_units, Treatment = randomized_treatments) ## Step 5\nprint(randomization_crd)\n\n   Unit Treatment\n1     1         C\n2     2         C\n3     3         A\n4     4         B\n5     5         C\n6     6         B\n7     7         B\n8     8         A\n9     9         C\n10   10         B\n11   11         A\n12   12         A"
+  },
+  {
+    "objectID": "example.html#a-long-slide",
+    "href": "example.html#a-long-slide",
+    "title": "dtslides UNM Theme",
+    "section": "A Long Slide",
+    "text": "A Long Slide\nHere is an example of a slide with a long list:\n\nThis is item 1\nThis is item 2\nThis is item 3\nThis is item 4\nThis is item 5\nThis is item 6\nThis is item 7\nThis is item 8\nThis is item 9\nThis is item 10\nThis is item 11\nThis is item 12\nThis is item 13\nThis is item 14"
+  },
+  {
+    "objectID": "example.html#a-long-slide-1",
+    "href": "example.html#a-long-slide-1",
+    "title": "dtslides UNM Theme",
+    "section": "A Long Slide",
+    "text": "A Long Slide\nHere is an example of a slide with a long list and a smaller attribute class {.small-slide}:\n\nThis is item 1\nThis is item 2\nThis is item 3\nThis is item 4\nThis is item 5\nThis is item 6\nThis is item 7\nThis is item 8\nThis is item 9\nThis is item 10\nThis is item 11\nThis is item 12\nThis is item 13\nThis is item 14"
+  },
+  {
+    "objectID": "example.html#a-long-slide-2",
+    "href": "example.html#a-long-slide-2",
+    "title": "dtslides UNM Theme",
+    "section": "A Long Slide",
+    "text": "A Long Slide\nHere is an example of a slide with a long list and a tiny attribute class {.tiny-slide}:\n\nThis is item 1\nThis is item 2\nThis is item 3\nThis is item 4\nThis is item 5\nThis is item 6\nThis is item 7\nThis is item 8\nThis is item 9\nThis is item 10\nThis is item 11\nThis is item 12\nThis is item 13\nThis is item 14"
+  },
+  {
+    "objectID": "example.html#callout-sec",
+    "href": "example.html#callout-sec",
+    "title": "dtslides UNM Theme",
+    "section": "Callouts Examples",
+    "text": "Callouts Examples\nHere are some examples of callout boxes:\n\n\n\n\n\n\nNote\n\n\nThis is a note callout box.\n\n\n\n\n\n\n\n\n\nTip\n\n\nThis is a tip callout box.\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThis is an important callout box.\n\n\n\n\n\n\n\n\n\nWarning\n\n\nThis is a warning callout box.\n\n\n\n\n\n\n\n\n\nCaution\n\n\nThis is a caution callout box."
+  },
+  {
+    "objectID": "example.html#table",
+    "href": "example.html#table",
+    "title": "dtslides UNM Theme",
+    "section": "Table",
+    "text": "Table\n\n\n# Create a data frame\ndf &lt;- data.frame(\n    Name = c(\"Alice\", \"Bob\", \"Charlie\", \"David\"),\n    Age = c(25, 30, 35, 40),\n    Height = c(5.6, 5.8, 5.9, 6.0)\n)\n\n# Print the data frame\ndf |&gt; knitr::kable()\n\n\n\n\n\nName\nAge\nHeight\n\n\n\n\nAlice\n25\n5.6\n\n\nBob\n30\n5.8\n\n\nCharlie\n35\n5.9\n\n\nDavid\n40\n6.0"
+  },
+  {
+    "objectID": "example.html#custom-call-out",
+    "href": "example.html#custom-call-out",
+    "title": "dtslides UNM Theme",
+    "section": "Custom Call-out",
+    "text": "Custom Call-out\n\nHere’s a worked example illustrating a random intercept model.\n\n\nWhat changes if random slopes are included in the model?\n\n\nThis is an insight block using custom CSS."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "dtslides",
+    "section": "",
+    "text": "Two polished reveal.js presentation themes with shared layout architecture — slide types, emphasis classes, callouts, font utilities, styled tables, and citation support from a single install."
+  },
+  {
+    "objectID": "index.html#themes",
+    "href": "index.html#themes",
+    "title": "dtslides",
+    "section": "Themes",
+    "text": "Themes\n\n\n\n  \n    \n    \n    \n    \n    \n    \n  \n  \n    Academic\n    Clean, institution-neutral design. Navy/slate palette suited for any department or conference.\n  \n\nformat:\n  dtslides-revealjs:\n    slide-number: c/t\nLive Demo\n\n\n  \n    \n    \n    \n    \n    \n    \n  \n  \n    UNM\n    University of New Mexico branding. Cherry/turquoise palette with official logos.\n  \n\nformat:\n  dtslides-unm-revealjs:\n    slide-number: c/t\nLive Demo Extended Demo"
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "dtslides",
+    "section": "Install",
+    "text": "Install\nquarto add Data-Wise/dtslides\nInstalls both themes under _extensions/. Requires Quarto &gt;= 1.6.0. See Getting Started for usage and customization."
+  },
+  {
+    "objectID": "index.html#features",
+    "href": "index.html#features",
+    "title": "dtslides",
+    "section": "Features",
+    "text": "Features\n\n  \n    Slide Types\n    .small-slide .tiny-slide .quote-slide .image-slide .section-slide .slide-code .scrollable\n  \n  \n    Emphasis & Highlighting\n    .alert .fg .bg .highlight .note .warning — inline spans for drawing attention to key content.\n  \n  \n    Custom Callouts\n    .callout-example .callout-question .callout-insight plus all standard Quarto callouts, styled to match each theme.\n  \n  \n    Font Sizing\n    .largest through .smallest — apply to slides or divs. Code blocks inside scale proportionally.\n  \n  \n    Layout Utilities\n    Text alignment (.left .center .right), vertical positioning (.v-center .v-top .v-bottom), buttons, badges.\n  \n  \n    Citations & References\n    Pandoc citeproc citations styled at 0.8em. Reference lists auto-shrink at 6+ and 11+ entries — no JavaScript needed.\n  \n\nSee the full CSS Class Reference for usage examples."
+  },
+  {
+    "objectID": "index.html#quick-example",
+    "href": "index.html#quick-example",
+    "title": "dtslides",
+    "section": "Quick Example",
+    "text": "Quick Example\nA minimal slide using dtslides features:\n## Key Findings {.small-slide}\n\nThe treatment effect was [statistically significant]{.alert}\nwith [p &lt; 0.001]{.highlight}.\n\n::: {.callout-insight}\nEffect size doubled when controlling for baseline severity.\n:::\n\n[[See Methods]{.button}](#methods)\nThis renders a compact slide with alert text, a highlighted p-value, a themed callout box, and a navigation button — all without writing any CSS."
+  }
+]

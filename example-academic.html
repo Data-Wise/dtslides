@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="author" content="Your Name">
+  <meta name="dcterms.date" content="2026-02-12">
+  <title>dtslides – Introduction to Statistical Methods</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-c204f334bab436890b375d3a7767b454.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Introduction to Statistical Methods</h1>
+  <p class="subtitle">Academic Theme — Full Feature Showcase</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Your Name <a href="https://orcid.org/0000-0000-0000-0000" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:alias@email.com">alias@email.com</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Department of Statistics
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-02-12</p>
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<p>This presentation demonstrates the <strong>academic</strong> theme — a clean, neutral design suitable for any institution.</p>
+<ul>
+<li>Navy/slate color palette</li>
+<li>No institutional branding</li>
+<li>Same feature set as the UNM theme</li>
+</ul>
+</section>
+<section>
+<section id="typography-basics" class="title-slide slide level1 section-slide center">
+<h1>Typography &amp; Basics</h1>
+
+</section>
+<section id="text-formatting" class="slide level2">
+<h2>Text Formatting</h2>
+<p>Standard Markdown formatting works seamlessly:</p>
+<ul>
+<li><strong>Bold text</strong> for emphasis</li>
+<li><em>Italic text</em> for nuance</li>
+<li><del>Strikethrough</del> for deletions</li>
+<li><code>Inline code</code> for technical terms like <code>lm()</code> or <code>ggplot2</code></li>
+<li><a href="https://quarto.org">Links to resources</a></li>
+</ul>
+<blockquote>
+<p>“All models are wrong, but some are useful.” — George Box</p>
+</blockquote>
+</section>
+<section id="lists-fragments" class="slide level2">
+<h2>Lists &amp; Fragments</h2>
+<p>Use <code>::: {.fragment}</code> to reveal items one at a time:</p>
+<div class="fragment">
+<ol type="1">
+<li>State the null hypothesis <span class="math inline">\(H_0\)</span></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Choose a significance level <span class="math inline">\(\alpha\)</span></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Compute the test statistic</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li>Compare to critical value or compute <span class="math inline">\(p\)</span>-value</li>
+</ol>
+</div>
+</section>
+<section id="incremental-lists" class="slide level2">
+<h2>Incremental Lists</h2>
+<p>Add <code>{.incremental}</code> to auto-fragment every bullet:</p>
+<ul>
+<li class="fragment">Assumption checking</li>
+<li class="fragment">Model fitting</li>
+<li class="fragment">Diagnostics</li>
+<li class="fragment">Interpretation</li>
+</ul>
+</section>
+<section id="font-sizing-utilities" class="slide level2 small-slide">
+<h2>Font Sizing Utilities</h2>
+<p>Apply size classes to spans or divs:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><span class="largest"><code>.largest</code></span> (1.20em)</li>
+<li><span class="larger"><code>.larger</code></span> (1.50em)</li>
+<li><span class="large"><code>.large</code></span> (1.25em)</li>
+<li>Normal text (1em)</li>
+<li><span class="small"><code>.small</code></span> (0.80em)</li>
+<li><span class="smaller"><code>.smaller</code></span> (0.64em)</li>
+<li><span class="smallest"><code>.smallest</code></span> (0.512em)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Code blocks scale too:</p>
+<div class="small">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># .small code block</span></span>
+<span id="cb1-2"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x))</span></code></pre></div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="slide-types" class="title-slide slide level1 section-slide center">
+<h1>Slide Types</h1>
+
+</section>
+<section id="small-slide" class="slide level2 small-slide">
+<h2>Small Slide</h2>
+<p>Use <code>{.small-slide}</code> for slides with more content (80% font size).</p>
+<ul>
+<li>Useful when you need to fit slightly more text</li>
+<li>Keeps readability while increasing density</li>
+<li>Great for summary or review slides</li>
+</ul>
+</section>
+<section id="tiny-slide" class="slide level2 tiny-slide">
+<h2>Tiny Slide</h2>
+<p>Use <code>{.tiny-slide}</code> for very dense information (40% font size).</p>
+<ol type="1">
+<li>Reference lists</li>
+<li>Detailed code output</li>
+<li>Appendix material</li>
+<li>Supplementary tables</li>
+<li>Method details</li>
+<li>Full regression output</li>
+<li>Assumption checks</li>
+<li>Sensitivity analyses</li>
+<li>Additional citations</li>
+<li>Technical notes</li>
+</ol>
+</section>
+<section id="quote-slide" class="slide level2 quote-slide">
+<h2>Quote Slide</h2>
+<blockquote>
+<p>“The best thing about being a statistician is that you get to play in everyone’s backyard.”</p>
+</blockquote>
+<p>— John Tukey</p>
+</section>
+<section id="scrollable-slide" class="slide level2 scrollable">
+<h2>Scrollable Slide</h2>
+<p>Add <code>{.scrollable}</code> to the slide title for long content.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb2-2"><a></a>n <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb2-3"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb2-4"><a></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb2-5"><a></a>x3 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb2-6"><a></a>y <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>x1 <span class="sc">-</span> <span class="fl">1.5</span><span class="sc">*</span>x2 <span class="sc">+</span> <span class="fl">0.8</span><span class="sc">*</span>x3 <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb2-7"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2 <span class="sc">+</span> x3)</span>
+<span id="cb2-8"><a></a><span class="fu">summary</span>(fit)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ x1 + x2 + x3)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.93441 -0.62144  0.03289  0.72861  2.25916 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.86990    0.06621   43.35   &lt;2e-16 ***
+x1           1.94150    0.06826   28.44   &lt;2e-16 ***
+x2          -1.49839    0.07029  -21.32   &lt;2e-16 ***
+x3           0.79215    0.06384   12.41   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.9344 on 196 degrees of freedom
+Multiple R-squared:  0.8813,    Adjusted R-squared:  0.8795 
+F-statistic: 485.3 on 3 and 196 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">confint</span>(fit)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+(Intercept)  2.7393263  3.0004766
+x1           1.8068779  2.0761290
+x2          -1.6370243 -1.3597633
+x3           0.6662528  0.9180429</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="layouts" class="title-slide slide level1 section-slide center">
+<h1>Layouts</h1>
+
+</section>
+<section id="two-columns" class="slide level2">
+<h2>Two Columns</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="left-column">Left Column</h3>
+<ul>
+<li>Regression assumptions</li>
+<li>Linearity</li>
+<li>Normality of residuals</li>
+<li>Homoscedasticity</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="right-column">Right Column</h3>
+<ul>
+<li>Diagnostic tools</li>
+<li>Residual plots</li>
+<li>Q-Q plots</li>
+<li>Cook’s distance</li>
+</ul>
+</div></div>
+</section>
+<section id="columns-with-code-output" class="slide level2">
+<h2>Columns with Code &amp; Output</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>The Model</strong></p>
+<p>We fit a simple linear regression:</p>
+<p><span class="math display">\[\hat{y} = b_0 + b_1 x\]</span></p>
+<p>where <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are estimated via OLS.</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb6-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb6-3"><a></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb6-4"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb6-5"><a></a>     <span class="at">col =</span> <span class="st">"#4A6FA5"</span>)</span>
+<span id="cb6-6"><a></a><span class="fu">abline</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x),</span>
+<span id="cb6-7"><a></a>       <span class="at">col =</span> <span class="st">"#1B365D"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="example-academic_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="tabsets" class="slide level2">
+<h2>Tabsets</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Summary Stats</a></li><li><a href="#tabset-1-2">Correlation</a></li><li><a href="#tabset-1-3">Model</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">summary</span>(mtcars[, <span class="fu">c</span>(<span class="st">"mpg"</span>, <span class="st">"hp"</span>, <span class="st">"wt"</span>)])</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      mpg              hp              wt       
+ Min.   :10.40   Min.   : 52.0   Min.   :1.513  
+ 1st Qu.:15.43   1st Qu.: 96.5   1st Qu.:2.581  
+ Median :19.20   Median :123.0   Median :3.325  
+ Mean   :20.09   Mean   :146.7   Mean   :3.217  
+ 3rd Qu.:22.80   3rd Qu.:180.0   3rd Qu.:3.610  
+ Max.   :33.90   Max.   :335.0   Max.   :5.424  </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">round</span>(<span class="fu">cor</span>(mtcars[, <span class="fu">c</span>(<span class="st">"mpg"</span>, <span class="st">"hp"</span>, <span class="st">"wt"</span>)]), <span class="dv">3</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       mpg     hp     wt
+mpg  1.000 -0.776 -0.868
+hp  -0.776  1.000  0.659
+wt  -0.868  0.659  1.000</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">coef</span>(<span class="fu">summary</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> hp <span class="sc">+</span> wt, <span class="at">data =</span> mtcars)))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Estimate Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 37.22727012 1.59878754 23.284689 2.565459e-20
+hp          -0.03177295 0.00902971 -3.518712 1.451229e-03
+wt          -3.87783074 0.63273349 -6.128695 1.119647e-06</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="code-output" class="title-slide slide level1 section-slide center">
+<h1>Code &amp; Output</h1>
+
+</section>
+<section id="r-code-example" class="slide level2">
+<h2>R Code Example</h2>
+<p>Standard R code blocks:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines"><code class="sourceCode markdown"><span id="cb13-1"><a></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb13-3"><a></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb13-4"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb13-5"><a></a>...</span>
+<span id="cb13-6"><a></a><span class="in">```</span></span></code></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb14-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb14-3"><a></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="fl">0.5</span>)</span>
+<span id="cb14-4"><a></a><span class="fu">summary</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ x)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.94421 -0.25332  0.00612  0.27053  1.43120 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -0.04418    0.04544  -0.972    0.333    
+x            2.01358    0.04383  45.938   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4542 on 98 degrees of freedom
+Multiple R-squared:  0.9556,    Adjusted R-squared:  0.9552 
+F-statistic:  2110 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="code-with-column-output" class="slide level2 small-slide">
+<h2>Code with Column Output</h2>
+<p>Use <code>#| output-location: column</code> to place output side-by-side.</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb16-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-2"><a></a>  <span class="at">Treatment =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>), <span class="at">each =</span> <span class="dv">4</span>),</span>
+<span id="cb16-3"><a></a>  <span class="at">Response =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">21</span>, <span class="dv">24</span>,</span>
+<span id="cb16-4"><a></a>               <span class="dv">30</span>, <span class="dv">32</span>, <span class="dv">28</span>, <span class="dv">31</span>,</span>
+<span id="cb16-5"><a></a>               <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">17</span>, <span class="dv">19</span>)</span>
+<span id="cb16-6"><a></a>)</span>
+<span id="cb16-7"><a></a>df <span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Treatment</th>
+<th style="text-align: right;">Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">19</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+</section>
+<section id="r-plot-output" class="slide level2">
+<h2>R Plot Output</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb17-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-5"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Motor Trend Car Road Tests"</span>,</span>
+<span id="cb17-6"><a></a>       <span class="at">x =</span> <span class="st">"Weight (1000 lbs)"</span>, <span class="at">y =</span> <span class="st">"Miles per Gallon"</span>,</span>
+<span id="cb17-7"><a></a>       <span class="at">color =</span> <span class="st">"Cylinders"</span>)</span></code></pre></div>
+
+</div>
+<img data-src="example-academic_files/figure-revealjs/unnamed-chunk-8-1.png" width="768" class="r-stretch"></section>
+<section id="code-with-filename" class="slide level2 small-slide">
+<h2>Code with Filename</h2>
+<p>Use <code>filename</code> to label code blocks:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>analysis.R</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Load and prepare data</span></span>
+<span id="cb18-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-3"><a></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"experiment.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-4"><a></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(response)) <span class="sc">|&gt;</span></span>
+<span id="cb18-5"><a></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">factor</span>(group))</span>
+<span id="cb18-6"><a></a></span>
+<span id="cb18-7"><a></a><span class="co"># Fit ANOVA</span></span>
+<span id="cb18-8"><a></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(response <span class="sc">~</span> group, <span class="at">data =</span> data)</span>
+<span id="cb18-9"><a></a><span class="fu">summary</span>(model)</span>
+<span id="cb18-10"><a></a><span class="fu">TukeyHSD</span>(model)</span></code></pre></div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="math-equations" class="title-slide slide level1 section-slide center">
+<h1>Math &amp; Equations</h1>
+
+</section>
+<section id="latex-support" class="slide level2">
+<h2>LaTeX Support</h2>
+<p><strong>Inline math:</strong> The sample mean is <span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\)</span>.</p>
+<p><strong>Display math:</strong></p>
+<p><span class="math display">\[
+f(x \mid \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+\]</span></p>
+<p><strong>Aligned equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+\hat{\beta} &amp;= (X'X)^{-1}X'y \\
+\text{Var}(\hat{\beta}) &amp;= \sigma^2 (X'X)^{-1} \\
+\hat{\sigma}^2 &amp;= \frac{e'e}{n - p}
+\end{align}
+\]</span></p>
+</section></section>
+<section>
+<section id="theme-features" class="title-slide slide level1 section-slide center">
+<h1>Theme Features</h1>
+
+</section>
+<section id="emphasis-classes" class="slide level2">
+<h2>Emphasis Classes</h2>
+<p>Add emphasis using spans <code>[text]{.class}</code>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Syntax</th>
+<th>Result</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>[text]{.alert}</code></td>
+<td><span class="alert">important note</span></td>
+<td>Key warnings</td>
+</tr>
+<tr class="even">
+<td><code>[text]{.fg}</code></td>
+<td><span class="fg">highlighted</span></td>
+<td>Accent emphasis</td>
+</tr>
+<tr class="odd">
+<td><code>[text]{.bg}</code></td>
+<td><span class="bg">background</span></td>
+<td>Strong emphasis</td>
+</tr>
+<tr class="even">
+<td><code>[text]{.highlight}</code></td>
+<td><span class="highlight">key finding</span></td>
+<td>Highlights</td>
+</tr>
+<tr class="odd">
+<td><code>[text]{.note}</code></td>
+<td><span class="note">side note</span></td>
+<td>Asides</td>
+</tr>
+<tr class="even">
+<td><code>[text]{.warning}</code></td>
+<td><span class="warning">caution</span></td>
+<td>Warnings</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="standard-quarto-callouts" class="slide level2">
+<h2>Standard Quarto Callouts</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Note callouts are great for supplementary information.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Important callouts highlight critical warnings.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Tip callouts suggest best practices and shortcuts.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="theme-specific-callouts" class="slide level2">
+<h2>Theme-Specific Callouts</h2>
+<p>Use divs <code>::: {.callout-type}</code> for custom boxes:</p>
+<div class="callout-example">
+<p>Consider a study with <span class="math inline">\(n = 30\)</span> subjects. The sample mean is <span class="math inline">\(\bar{x} = 5.2\)</span> with <span class="math inline">\(s = 1.8\)</span>. A 95% CI for <span class="math inline">\(\mu\)</span> is <span class="math inline">\((4.53, 5.87)\)</span>.</p>
+</div>
+<div class="callout-question">
+<p>How does increasing the sample size affect the width of the confidence interval?</p>
+</div>
+<div class="callout-insight">
+<p>The CI width decreases at rate <span class="math inline">\(1/\sqrt{n}\)</span>, so quadrupling the sample size halves the interval width.</p>
+</div>
+</section>
+<section id="table-example" class="slide level2">
+<h2>Table Example</h2>
+<p>Standard Markdown tables with automatic striped rows:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>DF</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+<th><span class="math inline">\(p\)</span>-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treatment</td>
+<td>2</td>
+<td>312.0</td>
+<td>156.0</td>
+<td>52.00</td>
+<td>&lt; .001</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td>9</td>
+<td>27.0</td>
+<td>3.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>11</td>
+<td>339.0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="alignment-buttons" class="slide level2 small-slide">
+<h2>Alignment &amp; Buttons</h2>
+<h3 id="text-alignment">Text alignment</h3>
+<ul>
+<li><code>{.left}</code> → <span class="left">Left-aligned text</span></li>
+<li><code>{.center}</code> → <span class="center">Centered text</span></li>
+<li><code>{.right}</code> → <span class="right">Right-aligned text</span></li>
+</ul>
+<h3 id="buttons-and-badges">Buttons and badges</h3>
+<ul>
+<li>Button: <code>[[Text]{.button}](#link)</code>
+<ul>
+<li><a href="#/table-example"><span class="button">Jump to Table Slide</span></a></li>
+</ul></li>
+<li>Badges: <code>[v1.1]{.badge}</code>
+<ul>
+<li><span class="badge">v1.1.0</span> <span class="badge-secondary">New</span></li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="diagrams" class="title-slide slide level1 section-slide center">
+<h1>Diagrams</h1>
+
+</section>
+<section id="mermaid-diagrams" class="slide level2">
+<h2>Mermaid Diagrams</h2>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource default number-lines"><code class="sourceCode default"><span id="cb19-1"><a></a>flowchart LR</span>
+<span id="cb19-2"><a></a>  A[Collect Data] --&gt; B{Assumptions Met?}</span>
+<span id="cb19-3"><a></a>  B -- Yes --&gt; C[Fit Model]</span>
+<span id="cb19-4"><a></a>  B -- No --&gt; D[Transform Data]</span>
+<span id="cb19-5"><a></a>  D --&gt; B</span>
+<span id="cb19-6"><a></a>  C --&gt; E[Interpret Results]</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A[Collect Data] --&gt; B{Assumptions Met?}
+  B -- Yes --&gt; C[Fit Model]
+  B -- No --&gt; D[Transform Data]
+  D --&gt; B
+  C --&gt; E[Interpret Results]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="graphviz-diagrams" class="slide level2">
+<h2>Graphviz Diagrams</h2>
+<div class="cell" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource dot number-lines"><code class="sourceCode dot"><span id="cb20-1"><a></a><span class="kw">digraph</span> <span class="va">G</span> <span class="ot">{</span></span>
+<span id="cb20-2"><a></a><span class="co">  </span><span class="at">rankdir</span><span class="ot">=</span><span class="va">LR</span><span class="ot">;</span></span>
+<span id="cb20-3"><a></a><span class="co">  </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">box</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="st">"#F5F7FA"</span><span class="co">, </span><span class="at">color</span><span class="ot">=</span><span class="st">"#1B365D"</span><span class="ot">];</span></span>
+<span id="cb20-4"><a></a><span class="co">  </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="st">"#4A6FA5"</span><span class="ot">];</span></span>
+<span id="cb20-5"><a></a><span class="co">  </span><span class="st">"Raw Data"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"Clean"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"Explore"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"Model"</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="st">"Report"</span><span class="ot">;</span></span>
+<span id="cb20-6"><a></a><span class="ot">}</span></span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 446.01 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 442.01,-40 442.01,4 -4,4"></polygon>
+<!-- Raw Data -->
+<g id="node1" class="node">
+<title>Raw Data</title>
+<polygon fill="#f5f7fa" stroke="#1b365d" points="71.39,-36 0.2,-36 0.2,0 71.39,0 71.39,-36"></polygon>
+<text text-anchor="middle" x="35.79" y="-13.8" font-family="Times,serif" font-size="14.00">Raw Data</text>
+</g>
+<!-- Clean -->
+<g id="node2" class="node">
+<title>Clean</title>
+<polygon fill="#f5f7fa" stroke="#1b365d" points="161.59,-36 107.59,-36 107.59,0 161.59,0 161.59,-36"></polygon>
+<text text-anchor="middle" x="134.59" y="-13.8" font-family="Times,serif" font-size="14.00">Clean</text>
+</g>
+<!-- Raw Data&#45;&gt;Clean -->
+<g id="edge1" class="edge">
+<title>Raw Data-&gt;Clean</title>
+<path fill="none" stroke="#4a6fa5" d="M71.47,-18C79.78,-18 88.69,-18 97.08,-18"></path>
+<polygon fill="#4a6fa5" stroke="#4a6fa5" points="97.36,-21.5 107.36,-18 97.36,-14.5 97.36,-21.5"></polygon>
+</g>
+<!-- Explore -->
+<g id="node3" class="node">
+<title>Explore</title>
+<polygon fill="#f5f7fa" stroke="#1b365d" points="258.07,-36 197.43,-36 197.43,0 258.07,0 258.07,-36"></polygon>
+<text text-anchor="middle" x="227.75" y="-13.8" font-family="Times,serif" font-size="14.00">Explore</text>
+</g>
+<!-- Clean&#45;&gt;Explore -->
+<g id="edge2" class="edge">
+<title>Clean-&gt;Explore</title>
+<path fill="none" stroke="#4a6fa5" d="M161.96,-18C169.88,-18 178.76,-18 187.33,-18"></path>
+<polygon fill="#4a6fa5" stroke="#4a6fa5" points="187.56,-21.5 197.56,-18 187.56,-14.5 187.56,-21.5"></polygon>
+</g>
+<!-- Model -->
+<g id="node4" class="node">
+<title>Model</title>
+<polygon fill="#f5f7fa" stroke="#1b365d" points="347.91,-36 293.91,-36 293.91,0 347.91,0 347.91,-36"></polygon>
+<text text-anchor="middle" x="320.91" y="-13.8" font-family="Times,serif" font-size="14.00">Model</text>
+</g>
+<!-- Explore&#45;&gt;Model -->
+<g id="edge3" class="edge">
+<title>Explore-&gt;Model</title>
+<path fill="none" stroke="#4a6fa5" d="M258.09,-18C266.23,-18 275.17,-18 283.65,-18"></path>
+<polygon fill="#4a6fa5" stroke="#4a6fa5" points="283.7,-21.5 293.7,-18 283.7,-14.5 283.7,-21.5"></polygon>
+</g>
+<!-- Report -->
+<g id="node5" class="node">
+<title>Report</title>
+<polygon fill="#f5f7fa" stroke="#1b365d" points="438.06,-36 383.86,-36 383.86,0 438.06,0 438.06,-36"></polygon>
+<text text-anchor="middle" x="410.96" y="-13.8" font-family="Times,serif" font-size="14.00">Report</text>
+</g>
+<!-- Model&#45;&gt;Report -->
+<g id="edge4" class="edge">
+<title>Model-&gt;Report</title>
+<path fill="none" stroke="#4a6fa5" d="M348.33,-18C356.32,-18 365.24,-18 373.76,-18"></path>
+<polygon fill="#4a6fa5" stroke="#4a6fa5" points="373.86,-21.5 383.86,-18 373.86,-14.5 373.86,-21.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="vertical-alignment" class="title-slide slide level1 section-slide center">
+<h1>Vertical Alignment</h1>
+
+</section>
+<section id="centered-content" class="slide level2 center">
+<h2>Centered Content</h2>
+<p>This slide uses <code>{.center}</code> to vertically center all content.</p>
+<p>Perfect for title cards or key takeaways.</p>
+<p><strong>Key Finding:</strong> The treatment effect was statistically significant (<span class="math inline">\(p &lt; .001\)</span>).</p>
+</section></section>
+<section>
+<section id="citations" class="title-slide slide level1 section-slide center">
+<h1>Citations</h1>
+
+</section>
+<section id="inline-citations" class="slide level2">
+<h2>Inline Citations</h2>
+<p>As <span class="citation" data-cites="box1976">Box (<a href="#/references" role="doc-biblioref" onclick="">1976</a>)</span> famously noted, all models are wrong but some are useful.</p>
+<p>The bootstrap method <span class="citation" data-cites="efron1993">(<a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span> provides a nonparametric approach to inference. Exploratory data analysis <span class="citation" data-cites="tukey1977">(<a href="#/references" role="doc-biblioref" onclick="">Tukey 1977</a>)</span> is a crucial first step. Classical foundations include <span class="citation" data-cites="fisher1925">(<a href="#/references" role="doc-biblioref" onclick="">Fisher 1925</a>)</span> and <span class="citation" data-cites="neyman1933">(<a href="#/references" role="doc-biblioref" onclick="">Neyman and Pearson 1933</a>)</span>.</p>
+<p>Modern methods span Bayesian analysis <span class="citation" data-cites="gelman2013">(<a href="#/references" role="doc-biblioref" onclick="">Gelman et al. 2013</a>)</span>, random forests <span class="citation" data-cites="breiman2001">(<a href="#/references" role="doc-biblioref" onclick="">Breiman 2001</a>)</span>, regularization <span class="citation" data-cites="tibshirani1996">(<a href="#/references" role="doc-biblioref" onclick="">Tibshirani 1996</a>)</span>, causal inference <span class="citation" data-cites="pearl2009 rubin1974">(<a href="#/references" role="doc-biblioref" onclick="">Pearl 2009</a>; <a href="#/references" role="doc-biblioref" onclick="">Rubin 1974</a>)</span>, machine learning <span class="citation" data-cites="hastie2009">(<a href="#/references" role="doc-biblioref" onclick="">Hastie, Tibshirani, and Friedman 2009</a>)</span>, and survival analysis <span class="citation" data-cites="cox1972">(<a href="#/references" role="doc-biblioref" onclick="">Cox 1972</a>)</span>.</p>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-box1976" class="csl-entry" role="listitem">
+Box, George E. P. 1976. <span>“Science and Statistics.”</span> <em>Journal of the American Statistical Association</em> 71 (356): 791–99.
+</div>
+<div id="ref-breiman2001" class="csl-entry" role="listitem">
+Breiman, Leo. 2001. <span>“Random Forests.”</span> <em>Machine Learning</em> 45: 5–32.
+</div>
+<div id="ref-cox1972" class="csl-entry" role="listitem">
+Cox, David R. 1972. <span>“Regression Models and Life-Tables.”</span> <em>Journal of the Royal Statistical Society B</em> 34 (2): 187–220.
+</div>
+<div id="ref-efron1993" class="csl-entry" role="listitem">
+Efron, Bradley, and Robert J. Tibshirani. 1993. <em>An Introduction to the Bootstrap</em>. Chapman; Hall.
+</div>
+<div id="ref-fisher1925" class="csl-entry" role="listitem">
+Fisher, Ronald A. 1925. <span>“Statistical Methods for Research Workers.”</span> <em>Edinburgh: Oliver and Boyd</em>.
+</div>
+<div id="ref-gelman2013" class="csl-entry" role="listitem">
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. <em>Bayesian Data Analysis</em>. 3rd ed. Chapman; Hall/CRC.
+</div>
+<div id="ref-hastie2009" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. <em>The Elements of Statistical Learning</em>. 2nd ed. Springer.
+</div>
+<div id="ref-neyman1933" class="csl-entry" role="listitem">
+Neyman, Jerzy, and Egon S. Pearson. 1933. <span>“On the Problem of the Most Efficient Tests of Statistical Hypotheses.”</span> <em>Philosophical Transactions of the Royal Society A</em> 231: 289–337.
+</div>
+<div id="ref-pearl2009" class="csl-entry" role="listitem">
+Pearl, Judea. 2009. <span>“Causality: Models, Reasoning, and Inference.”</span> <em>Cambridge University Press</em>.
+</div>
+<div id="ref-rubin1974" class="csl-entry" role="listitem">
+Rubin, Donald B. 1974. <span>“Estimating Causal Effects of Treatments in Randomized and Nonrandomized Studies.”</span> <em>Journal of Educational Psychology</em> 66 (5): 688–701.
+</div>
+<div id="ref-tibshirani1996" class="csl-entry" role="listitem">
+Tibshirani, Robert. 1996. <span>“Regression Shrinkage and Selection via the Lasso.”</span> <em>Journal of the Royal Statistical Society B</em> 58 (1): 267–88.
+</div>
+<div id="ref-tukey1977" class="csl-entry" role="listitem">
+Tukey, John W. 1977. <span>“Exploratory Data Analysis.”</span> <em>Reading, MA: Addison-Wesley</em>.
+</div>
+</div>
+</section></section>
+<section>
+<section id="summary" class="title-slide slide level1 section-slide center">
+<h1>Summary</h1>
+
+</section>
+<section id="what-we-covered" class="slide level2 small-slide">
+<h2>What We Covered</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="typography">Typography</h3>
+<ul>
+<li>Text formatting &amp; lists</li>
+<li>Fragments &amp; incremental</li>
+<li>Font sizing utilities</li>
+</ul>
+<h3 id="layouts-1">Layouts</h3>
+<ul>
+<li>Multi-column layouts</li>
+<li>Tabsets (panel-tabset)</li>
+<li>Slide types (small, tiny, quote)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="code-math">Code &amp; Math</h3>
+<ul>
+<li>R code execution &amp; plots</li>
+<li>Column output</li>
+<li>LaTeX equations</li>
+</ul>
+<h3 id="theme-features-1">Theme Features</h3>
+<ul>
+<li>Emphasis classes (6 types)</li>
+<li>Callouts (standard + custom)</li>
+<li>Buttons, badges, alignment</li>
+<li>Mermaid &amp; Graphviz diagrams</li>
+</ul>
+</div></div>
+</section>
+<section id="thank-you" class="slide level2 center">
+<h2>Thank You</h2>
+<p>Questions?</p>
+<p><a href="mailto:alias@email.com">alias@email.com</a></p>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/Data-Wise\.github\.io\/dtslides\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>
+    (function() {
+      function toggleFooter() {
+        var f = document.querySelector(".reveal > .footer");
+        if (!f || typeof Reveal === "undefined") return;
+        var i = Reveal.getIndices();
+        f.style.display = (i.h === 0 && i.v === 0) ? "none" : "block";
+      }
+      if (typeof Reveal !== "undefined") {
+        Reveal.on("slidechanged", toggleFooter);
+        Reveal.on("ready", toggleFooter);
+        if (Reveal.isReady()) toggleFooter();
+      }
+    })();
+    </script>
+    
+
+</body></html>
