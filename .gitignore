@@ -4,17 +4,22 @@
 _quarto_internal_scss_error.scss
 .gitattributes
 /example_*/
+
+# Quarto website build output
+_site/
+/.quarto/
+
 # Ignore RStudio project files
 *.Rproj
 .Rproj.user/
 
 # Ignore VSCode workspace settings
 *.code-workspace
-# Ignore system files
-.DS_Store
 
 # Playwright MCP screenshots
 .playwright-mcp/
 
 # Claude Code project instructions
 CLAUDE.md
+
+**/*.quarto_ipynb

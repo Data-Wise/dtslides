@@ -9,6 +9,8 @@ A Quarto extension providing two reveal.js presentation themes with a shared lay
 
 Requires Quarto >= 1.6.0.
 
+**[Documentation & Live Demos](https://data-wise.github.io/dtslides/)**
+
 ## Installing
 
 ```bash

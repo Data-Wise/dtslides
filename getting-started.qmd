@@ -1,0 +1,131 @@
+---
+title: "Getting Started"
+---
+
+## Installing
+
+```bash
+quarto add Data-Wise/dtslides
+```
+
+This installs both themes (Academic and UNM) under `_extensions/`. Check the directory into version control. Requires Quarto >= 1.6.0.
+
+## Updating
+
+```bash
+quarto update Data-Wise/dtslides
+```
+
+This replaces the extension files under `_extensions/` while preserving your `.qmd` files and any custom SCSS overrides.
+
+## Upgrading from unm-revealjs
+
+If you previously used the `unm-revealjs` extension (v1.0.x):
+
+1. Remove the old extension:
+
+   ```bash
+   rm -rf _extensions/unm
+   ```
+
+2. Install the new extension:
+
+   ```bash
+   quarto add Data-Wise/dtslides
+   ```
+
+3. Update your YAML front matter:
+
+   ```yaml
+   # Before
+   format:
+     unm-revealjs:
+       slide-number: c/t
+
+   # After
+   format:
+     dtslides-unm-revealjs:
+       slide-number: c/t
+   ```
+
+All CSS classes, callouts, and slide options work the same way — only the format string changed.
+
+## Using the Themes
+
+### Academic theme
+
+```yaml
+---
+title: "My Presentation"
+format:
+  dtslides-revealjs:
+    slide-number: c/t
+---
+```
+
+### UNM theme
+
+```yaml
+---
+title: "My Presentation"
+format:
+  dtslides-unm-revealjs:
+    slide-number: c/t
+---
+```
+
+## Customizing Colors and Fonts {#customizing}
+
+Quarto's YAML-level font options (`mainfont`, `fontsize`, `monofont`) are silently ignored for RevealJS presentations. All typography must be controlled through SCSS.
+
+To customize, create a `custom.scss` file and layer it after the extension theme:
+
+```yaml
+format:
+  dtslides-revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+```
+
+### Example `custom.scss`
+
+```scss
+/*-- scss:defaults --*/
+
+// --- Override fonts ---
+$font-family-sans-serif: "Georgia", serif;
+$font-family-heading: "Playfair Display", serif;
+$font-family-monospace: "JetBrains Mono", monospace;
+
+// --- Override sizes ---
+$font-size-root: 36px;
+$presentation-h2-font-size: 1.4em;
+
+// --- Override colors ---
+$primary: #2C3E50;
+$accent: #E74C3C;
+
+// --- Override spacing ---
+$line-height-body: 1.6;
+
+// --- Override code blocks ---
+$code-block-font-size: 0.7em;
+$code-block-bg: #f5f5f5;
+```
+
+The extension's SCSS uses `!default` on key variables, so your overrides take precedence.
+
+## CSS Specificity Notes
+
+When writing custom CSS rules for RevealJS, use the `.reveal` prefix to match the framework's specificity:
+
+```css
+/* Headings — bare h2 loses to RevealJS defaults */
+.reveal h2 { color: #2C3E50; }
+
+/* Quarto callouts — need div.callout to match specificity */
+.reveal div.callout-note { border-color: #007bff; }
+
+/* List items */
+.reveal .slide ul li { margin-bottom: 0.5em; }
+```
